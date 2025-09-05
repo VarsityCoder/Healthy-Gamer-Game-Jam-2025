@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cstos4fu0jxah"]
+
+[ext_resource type="Texture2D" uid="uid://vpc8pr7c4geq" path="res://assets/kenney_isometric-miniature-prototype/Characters/Human/Human_0_Idle0.png" id="1_674bt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_674bt"]
+radius = 39.319206
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mip4"]
+size = Vector2(89, 131)
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -120)
+texture = ExtResource("1_674bt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Player_Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_674bt")
+
+[node name="Interaction" type="Area2D" parent="."]
+
+[node name="Interaction_Collider" type="CollisionShape2D" parent="Interaction"]
+position = Vector2(94, 6)
+shape = SubResource("RectangleShape2D_3mip4")
