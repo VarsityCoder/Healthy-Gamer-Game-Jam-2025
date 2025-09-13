@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp1f0qxx5ftpm"]
+
+[ext_resource type="PackedScene" uid="uid://cfeb08k8d4pl0" path="res://assets/platform.tscn" id="1_lkhlg"]
+[ext_resource type="PackedScene" uid="uid://1fx26brk1r80" path="res://assets/object_1.tscn" id="2_5i6vt"]
+
+[node name="DragExample" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_lkhlg")]
+position = Vector2(-142, 90)
+
+[node name="Platform2" parent="." instance=ExtResource("1_lkhlg")]
+position = Vector2(231, 81)
+
+[node name="Platform3" parent="." instance=ExtResource("1_lkhlg")]
+position = Vector2(239, -167)
+
+[node name="Platform4" parent="." instance=ExtResource("1_lkhlg")]
+position = Vector2(-152, -162)
+
+[node name="Object1" parent="." instance=ExtResource("2_5i6vt")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
