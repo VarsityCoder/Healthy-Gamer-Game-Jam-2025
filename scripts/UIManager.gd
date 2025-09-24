@@ -49,6 +49,7 @@ func _on_activity_started(command: Command) -> void:
 func _on_activity_finished(command: Command) -> void:
 	print("Ended:", command.activity_name)
 	# HIDE ANIMATIONS
+	_clear_actions()
 	hide_cutscene_overlay()
 
 func show_cutscene_overlay():

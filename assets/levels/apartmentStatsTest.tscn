@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cuelhgp57kgoa"]
+[gd_scene load_steps=19 format=4 uid="uid://cuelhgp57kgoa"]
 
 [ext_resource type="Texture2D" uid="uid://cle2dlomyga8k" path="res://assets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="1_5ty3s"]
 [ext_resource type="PackedScene" uid="uid://dwr1rcpqmf70c" path="res://assets/player_topdown.tscn" id="2_q00km"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://cu18d33g46ui1" path="res://scripts/activities/yoga.tres" id="6_asdao"]
 [ext_resource type="Resource" uid="uid://30aif5ma7les" path="res://scripts/activities/sleep.tres" id="7_asdao"]
 [ext_resource type="Resource" uid="uid://b1vyuu4d50b1r" path="res://scripts/activities/drinkCoffee.tres" id="7_irwb2"]
+[ext_resource type="Resource" uid="uid://cy6cgtoelenfy" path="res://scripts/activities/meditation.tres" id="7_k0l5l"]
 [ext_resource type="Resource" uid="uid://b2qgh54du1pao" path="res://scripts/activities/eatSnack.tres" id="8_c2kll"]
 [ext_resource type="Resource" uid="uid://dwed3nxbeoupo" path="res://scripts/activities/dishes.tres" id="8_erum5"]
 [ext_resource type="Resource" uid="uid://dtiadjolcn56j" path="res://scripts/activities/eatMeal.tres" id="8_matsn"]
@@ -592,7 +593,7 @@ size_flags_vertical = 4
 
 [node name="yogaMat" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(-57, 0)
-activities = Array[ExtResource("5_3vdx0")]([ExtResource("6_asdao")])
+activities = Array[ExtResource("5_3vdx0")]([ExtResource("6_asdao"), ExtResource("7_k0l5l")])
 
 [node name="counter" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(-64, -93)
