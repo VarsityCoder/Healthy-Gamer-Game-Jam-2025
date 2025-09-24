@@ -12,7 +12,7 @@ effects = {
 "cognition": -1.0,
 "energy": -10.0
 }
-statuses_added = Array[String](["grungy"])
-statuses_removed = Array[String](["achey"])
+statuses_added = Array[String](["Grungy"])
+statuses_removed = Array[String](["Achey"])
 cooldown_hours = 3.0
 metadata/_custom_type_script = "uid://m8pebh44pmau"

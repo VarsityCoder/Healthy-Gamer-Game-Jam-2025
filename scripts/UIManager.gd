@@ -20,9 +20,10 @@ func _ready() -> void:
 
 func _on_player_status_changed(statuses):
 	var temp = "Status: "
-	for i in len(statuses)-1:
-		temp += statuses[i] + ", "
-	temp += statuses[-1]
+	if statuses:
+		for i in len(statuses)-1:
+			temp += statuses[i] + ", "
+		temp += statuses[-1]
 	statuses_text.text = temp
 
 func _on_stat_changed(stat_name: String, value: float) -> void:
@@ -37,7 +38,9 @@ func _on_stat_changed(stat_name: String, value: float) -> void:
 			body_bar.value = value
 
 func _on_time_updated(game_time: float):
-	timer_text.text = "Time: " + str(floor(game_time))
+	var days_left = int(Globals.total_time - ceil(game_time)) / Globals.seconds_per_day
+	var hours_left = (int(floor(Globals.total_time - floor(game_time))) % Globals.seconds_per_day) / (Globals.seconds_per_day / 24)
+	timer_text.text = "Time: " + str(days_left) + " Days, " + str(hours_left - 1) + " Hours remaining..."
 
 func _on_activity_started(command: Command) -> void:
 	show_cutscene_overlay()
