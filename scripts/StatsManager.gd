@@ -18,6 +18,12 @@ var time_multiplier: float = 1.0
 func _process(delta: float) -> void:
 	game_time += delta * time_multiplier
 	emit_signal("time_updated", game_time)
+	
+func initStats():
+	emit_signal("stat_changed", "cognition", stats["cognition"])
+	emit_signal("stat_changed", "body", stats["body"])
+	emit_signal("stat_changed", "energy", stats["energy"])
+	emit_signal("stat_changed", "burnout", stats["burnout"])
 
 func get_stat(statName: String) -> float:
 	return stats.get(statName, 0)

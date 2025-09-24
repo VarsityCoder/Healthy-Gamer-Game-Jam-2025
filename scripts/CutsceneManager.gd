@@ -15,7 +15,7 @@ func start_activity(command: Command, player: Node) -> void:
 	ui_manager.show_cutscene_overlay()
 	
 	# Advancing game time
-	var game_seconds = command.duration_hours * 3600.0
+	var game_seconds = command.duration_hours * (Globals.seconds_per_day / 24)
 	StatsManager.game_time += game_seconds * StatsManager.time_multiplier
 	
 	# Applying stat effects

@@ -16,6 +16,7 @@ func _ready() -> void:
 	StatsManager.time_updated.connect(_on_time_updated)
 	CutsceneManager.activity_started.connect(_on_activity_started)
 	CutsceneManager.activity_finished.connect(_on_activity_finished)
+	StatsManager.initStats()
 	hide_cutscene_overlay()
 
 func _on_player_status_changed(statuses):
