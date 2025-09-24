@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5rak3yys72e3"]
+
+[ext_resource type="Script" uid="uid://b7yihase4xcgw" path="res://assets/components/activity_button.gd" id="3_8sfqh"]
+[ext_resource type="Resource" uid="uid://cu18d33g46ui1" path="res://scripts/activities/yoga.tres" id="4_xi824"]
+
+[node name="ActivityButton" type="Button"]
+script = ExtResource("3_8sfqh")
+command = ExtResource("4_xi824")

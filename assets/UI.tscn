@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxcf226mtr06g"]
+
+[ext_resource type="Script" uid="uid://bwscnq5dvdssb" path="res://scripts/UIManager.gd" id="1_3fiu0"]
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3fiu0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CutsceneOverlay" type="ColorRect" parent="MarginContainer"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 59
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="StatBars" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 19
+alignment = 1
+
+[node name="EnergyBar" type="ProgressBar" parent="MarginContainer/MarginContainer/StatBars"]
+layout_mode = 2
+
+[node name="Energy" type="Label" parent="MarginContainer/MarginContainer/StatBars/EnergyBar"]
+layout_mode = 0
+offset_top = -18.0
+offset_right = 53.0
+offset_bottom = 5.0
+text = "Energy"
+
+[node name="BodyBar" type="ProgressBar" parent="MarginContainer/MarginContainer/StatBars"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Physical" type="Label" parent="MarginContainer/MarginContainer/StatBars/BodyBar"]
+layout_mode = 0
+offset_top = -18.0
+offset_right = 63.0
+offset_bottom = 5.0
+text = "Physical"
+
+[node name="BurnoutBar" type="ProgressBar" parent="MarginContainer/MarginContainer/StatBars"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Burnout" type="Label" parent="MarginContainer/MarginContainer/StatBars/BurnoutBar"]
+layout_mode = 0
+offset_top = -18.0
+offset_right = 65.0
+offset_bottom = 5.0
+text = "Burnout"
+
+[node name="CognitionBar" type="ProgressBar" parent="MarginContainer/MarginContainer/StatBars"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Cognition" type="Label" parent="MarginContainer/MarginContainer/StatBars/CognitionBar"]
+layout_mode = 0
+offset_top = -18.0
+offset_right = 75.0
+offset_bottom = 5.0
+text = "Cognition"
+
+[node name="TimeLeft" type="Label" parent="MarginContainer/MarginContainer/StatBars"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Time:"
+
+[node name="PlayerStatuses" type="Label" parent="MarginContainer/MarginContainer/StatBars"]
+layout_mode = 2
+text = "No Status Effects..."
+
+[node name="ActionContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
