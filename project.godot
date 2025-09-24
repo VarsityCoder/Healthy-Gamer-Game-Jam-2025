@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="IsometricLifeGame"
-run/main_scene="uid://b5rvnr7a24g4c"
+run/main_scene="uid://cuelhgp57kgoa"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
