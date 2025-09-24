@@ -18,17 +18,20 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*res://scripts/globals.gd"
+StatsManager="*res://scripts/StatsManager.gd"
+CutsceneManager="*res://scripts/CutsceneManager.gd"
+ActivityManager="*res://scripts/ActivityManager.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 
 [global_group]
 
 dropable=""
+player=""
 
 [input]
 

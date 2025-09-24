@@ -1,6 +1,7 @@
 extends Node
 
 signal stat_changed(stat_name: String, new_value: float)
+signal player_status_changed(statuses: Array[String])
 signal time_updated(game_time: float)
 
 var stats = {
@@ -29,6 +30,8 @@ func set_stat(statName: String, value: float) -> void:
 func add_status(status: String) -> void:
 	if not statuses.has(status):
 		statuses.append(status)
+	emit_signal("player_status_changed", statuses)
 
 func remove_status(status: String) -> void:
 	statuses.erase(status)
+	emit_signal("player_status_changed", statuses)
