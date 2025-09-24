@@ -39,7 +39,7 @@ func _on_stat_changed(stat_name: String, value: float) -> void:
 			body_bar.value = value
 
 func _on_time_updated(_game_time: float):
-	timer_text.text = "Time: " + str(TimeManager.days_left) + " Days, " + str(int(TimeManager.hours_left)) + " Hours, " + str(int(TimeManager.mins_left)) + " mins remaining..."
+	timer_text.text = "Time: " + str(snapped(TimeManager.clock_time, 0.01)) + ", " + str(TimeManager.days_left) + " Days, " + str(int(TimeManager.hours_left)) + " Hours, " + str(int(TimeManager.mins_left)) + " mins remaining..."
 
 func _on_activity_started(command: Command) -> void:
 	print("Started:", command.activity_name)
@@ -67,6 +67,11 @@ func show_actions(commands: Array[Command]) -> void:
 		var btn_scene = preload("res://assets/components/ActivityButton.tscn")
 		var btn = btn_scene.instantiate()
 		btn.command = command
+		
+		if not command.is_available():
+			print(command.activity_name," is not available!")
+			btn.disabled = true
+			
 		#btn.player_path = player.get_path()
 		btn.text = command.activity_name
 		action_container.add_child(btn)
