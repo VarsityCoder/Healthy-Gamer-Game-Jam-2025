@@ -13,7 +13,7 @@ func _ready() -> void:
 	# Connect stats to UI bars
 	StatsManager.stat_changed.connect(_on_stat_changed)
 	StatsManager.player_status_changed.connect(_on_player_status_changed)
-	StatsManager.time_updated.connect(_on_time_updated)
+	TimeManager.time_updated.connect(_on_time_updated)
 	CutsceneManager.activity_started.connect(_on_activity_started)
 	CutsceneManager.activity_finished.connect(_on_activity_finished)
 	StatsManager.initStats()
@@ -38,15 +38,17 @@ func _on_stat_changed(stat_name: String, value: float) -> void:
 		"body":
 			body_bar.value = value
 
-func _on_time_updated(game_time: float):
-	var days_left = int(Globals.total_time - ceil(game_time)) / Globals.seconds_per_day
-	var hours_left = (int(floor(Globals.total_time - floor(game_time))) % Globals.seconds_per_day) / (Globals.seconds_per_day / 24)
-	timer_text.text = "Time: " + str(days_left) + " Days, " + str(hours_left - 1) + " Hours remaining..."
+func _on_time_updated(_game_time: float):
+	timer_text.text = "Time: " + str(TimeManager.days_left) + " Days, " + str(int(TimeManager.hours_left)) + " Hours, " + str(int(TimeManager.mins_left)) + " mins remaining..."
 
 func _on_activity_started(command: Command) -> void:
+	print("Started:", command.activity_name)
+	# ADD FUNCTIONALITY FOR ANIMATIONS
 	show_cutscene_overlay()
 
 func _on_activity_finished(command: Command) -> void:
+	print("Ended:", command.activity_name)
+	# HIDE ANIMATIONS
 	hide_cutscene_overlay()
 
 func show_cutscene_overlay():
@@ -59,7 +61,7 @@ func hide_cutscene_overlay():
 		func(): overlay.visible = false
 	)
 
-func show_actions(commands: Array[Command], player: Node) -> void:
+func show_actions(commands: Array[Command]) -> void:
 	_clear_actions()
 	for command in commands:
 		var btn_scene = preload("res://assets/components/ActivityButton.tscn")

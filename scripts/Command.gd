@@ -24,6 +24,6 @@ func is_available(current_time: float) -> bool:
 	
 	return true
 
-func execute(player: Node) -> void:
-	CutsceneManager.start_activity(self, player)
+func execute() -> void:
+	CutsceneManager.start_activity(self)
 	last_used_time = StatsManager.game_time

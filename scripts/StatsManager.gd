@@ -2,7 +2,7 @@ extends Node
 
 signal stat_changed(stat_name: String, new_value: float)
 signal player_status_changed(statuses: Array[String])
-signal time_updated(game_time: float)
+#signal time_updated(game_time: float)
 
 var stats = {
 	"energy": 100,
@@ -12,12 +12,12 @@ var stats = {
 }
 
 var statuses: Array[String] = []   # ["Hungry", "Grungy"]
-var game_time: float = 0
-var time_multiplier: float = 1.0
+#var game_time: float = 0
+#var time_multiplier: float = 1.0
 
-func _process(delta: float) -> void:
-	game_time += delta * time_multiplier
-	emit_signal("time_updated", game_time)
+#func _process(delta: float) -> void:
+	#game_time += delta * time_multiplier
+	#emit_signal("time_updated", game_time)
 	
 func initStats():
 	emit_signal("stat_changed", "cognition", stats["cognition"])

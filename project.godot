@@ -21,6 +21,7 @@ Globals="*res://scripts/globals.gd"
 StatsManager="*res://scripts/StatsManager.gd"
 CutsceneManager="*res://scripts/CutsceneManager.gd"
 ActivityManager="*res://scripts/ActivityManager.gd"
+TimeManager="*res://scripts/TimeManager.gd"
 
 [display]
 

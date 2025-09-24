@@ -4,10 +4,10 @@ extends Node
 @onready var ui_manager = get_tree().get_root().get_node("Apartment/CanvasLayer/Ui")
 
 func perform(command: Command) -> void:
-	command.execute(player)
+	command.execute()
 
 func availableActions(actions):
-	ui_manager.show_actions(actions, player)
+	ui_manager.show_actions(actions)
 	
 func clearActions():
 	ui_manager._clear_actions()
