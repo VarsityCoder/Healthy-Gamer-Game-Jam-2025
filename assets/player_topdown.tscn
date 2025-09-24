@@ -114,7 +114,7 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_n3avx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

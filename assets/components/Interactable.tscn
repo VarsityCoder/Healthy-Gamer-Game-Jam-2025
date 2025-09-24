@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://vhk54d2kchup"]
+
+[ext_resource type="Script" uid="uid://coq4bn6pa3ooh" path="res://assets/components/interactable.gd" id="1_xg32a"]
+[ext_resource type="Texture2D" uid="uid://bd202yk552w77" path="res://assets/kenney_rpg-urban-pack/Tiles/tile_0060.png" id="2_jlq5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg6qw"]
+size = Vector2(38, 31)
+
+[node name="Interactable" type="Area2D"]
+script = ExtResource("1_xg32a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jlq5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rg6qw")

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://dtiadjolcn56j"]
+
+[ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_r3v3w"]
+
+[resource]
+script = ExtResource("1_r3v3w")
+activity_name = "Eat Meal"
+duration_hours = 1.0
+effects = {
+"body": 15.0,
+"burnout": -3.0,
+"cognition": -5.0,
+"energy": -5.0
+}
+statuses_removed = Array[String](["Hungry"])
+cooldown_hours = 5.0
+metadata/_custom_type_script = "uid://m8pebh44pmau"

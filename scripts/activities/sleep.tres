@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://30aif5ma7les"]
+
+[ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_uj8yu"]
+
+[resource]
+script = ExtResource("1_uj8yu")
+activity_name = "Sleep"
+duration_hours = 8.0
+effects = {
+"body": 10.0,
+"burnout": -20.0,
+"cognition": 10.0,
+"energy": 30.0
+}
+cooldown_hours = 4.0
+metadata/_custom_type_script = "uid://m8pebh44pmau"

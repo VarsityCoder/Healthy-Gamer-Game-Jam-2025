@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://cu18d33g46ui1"]
+
+[ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_hn3et"]
+
+[resource]
+script = ExtResource("1_hn3et")
+activity_name = "Yoga"
+duration_hours = 0.5
+effects = {
+"body": 10.0,
+"burnout": -0.5,
+"cognition": -1.0,
+"energy": -10.0
+}
+statuses_added = Array[String](["Grungy"])
+statuses_removed = Array[String](["Achey"])
+cooldown_hours = 3.0
+metadata/_custom_type_script = "uid://m8pebh44pmau"
