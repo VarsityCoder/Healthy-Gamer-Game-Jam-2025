@@ -9,7 +9,7 @@ duration_hours = 0.75
 effects = {
 "body": 20.0,
 "burnout": -20.0,
-"cognition": -5.0,
+"cognition": 5.0,
 "energy": -10.0
 }
 statuses_removed = Array[String](["Grungy"])
