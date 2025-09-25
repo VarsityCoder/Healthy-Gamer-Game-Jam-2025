@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://isql6h63ukuf"]
+
+[ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_2x5qx"]
+
+[resource]
+script = ExtResource("1_2x5qx")
+activity_name = "Laundry"
+duration_hours = 1.0
+effects = {
+"body": -5.0,
+"burnout": 5.0,
+"cognition": -10.0,
+"energy": -15.0
+}
+cooldown_hours = 72.0
+metadata/_custom_type_script = "uid://m8pebh44pmau"

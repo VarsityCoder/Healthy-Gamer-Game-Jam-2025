@@ -9,8 +9,8 @@ duration_hours = 0.25
 effects = {
 "body": 5.0,
 "burnout": -10.0,
-"cognition": 1.0,
-"energy": 10.0
+"cognition": 5.0,
+"energy": 1.0
 }
 statuses_removed = Array[String](["Hungry"])
 cooldown_hours = 2.0

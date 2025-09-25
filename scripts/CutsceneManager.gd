@@ -15,8 +15,11 @@ func start_activity(command: Command) -> void:
 	ui_manager.show_cutscene_overlay()
 	
 	# Advancing game time
-	var game_seconds = command.duration_hours * (Globals.seconds_per_day / 24.0)
-	TimeManager.game_time += game_seconds * TimeManager.time_multiplier
+	var game_seconds = command.duration_hours * Globals.game_hour
+	if command.activity_name == "Sleep":
+		TimeManager.game_time += game_seconds
+	else:
+		TimeManager.game_time += game_seconds * TimeManager.time_multiplier
 	
 	# Applying stat effects
 	for stat_name in command.effects.keys():

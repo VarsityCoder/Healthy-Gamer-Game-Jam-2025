@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://csoknpljo1w50"]
+
+[ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_02xle"]
+
+[resource]
+script = ExtResource("1_02xle")
+activity_name = "Apply to Jobs"
+duration_hours = 2.0
+effects = {
+"body": -10.0,
+"burnout": 5.0,
+"cognition": -10.0,
+"energy": -20.0
+}
+metadata/_custom_type_script = "uid://m8pebh44pmau"

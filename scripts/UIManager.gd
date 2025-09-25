@@ -12,7 +12,7 @@ extends Control
 
 func _ready() -> void:
 	# Connect stats to UI bars
-	StatsManager.stat_changed.connect(_on_stat_changed)
+	StatsManager.stats_changed.connect(_on_stats_changed)
 	StatsManager.player_status_changed.connect(_on_player_status_changed)
 	TimeManager.time_updated.connect(_on_time_updated)
 	CutsceneManager.activity_started.connect(_on_activity_started)
@@ -28,16 +28,11 @@ func _on_player_status_changed(statuses):
 		temp += statuses[-1]
 	statuses_text.text = temp
 
-func _on_stat_changed(stat_name: String, value: float) -> void:
-	match stat_name:
-		"energy":
-			energy_bar.value = value
-		"burnout":
-			burnout_bar.value = value
-		"cognition":
-			cognition_bar.value = value
-		"body":
-			body_bar.value = value
+func _on_stats_changed(stats) -> void:
+	energy_bar.value = stats["energy"]
+	burnout_bar.value = stats["burnout"]
+	cognition_bar.value = stats["cognition"]
+	body_bar.value = stats["body"]
 
 func _on_time_updated(_game_time: float):
 	var total_days = Globals.total_time / Globals.seconds_per_day

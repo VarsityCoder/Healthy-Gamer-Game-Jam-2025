@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cuelhgp57kgoa"]
+[gd_scene load_steps=24 format=4 uid="uid://cuelhgp57kgoa"]
 
 [ext_resource type="Texture2D" uid="uid://cle2dlomyga8k" path="res://assets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="1_5ty3s"]
 [ext_resource type="PackedScene" uid="uid://dwr1rcpqmf70c" path="res://assets/player_topdown.tscn" id="2_q00km"]
@@ -9,13 +9,18 @@
 [ext_resource type="Resource" uid="uid://30aif5ma7les" path="res://scripts/activities/sleep.tres" id="7_asdao"]
 [ext_resource type="Resource" uid="uid://b1vyuu4d50b1r" path="res://scripts/activities/drinkCoffee.tres" id="7_irwb2"]
 [ext_resource type="Resource" uid="uid://cy6cgtoelenfy" path="res://scripts/activities/meditation.tres" id="7_k0l5l"]
+[ext_resource type="Resource" uid="uid://b3ayu2oc1viet" path="res://scripts/activities/walk.tres" id="8_0m8ib"]
 [ext_resource type="Resource" uid="uid://b2qgh54du1pao" path="res://scripts/activities/eatSnack.tres" id="8_c2kll"]
 [ext_resource type="Resource" uid="uid://dwed3nxbeoupo" path="res://scripts/activities/dishes.tres" id="8_erum5"]
 [ext_resource type="Resource" uid="uid://dtiadjolcn56j" path="res://scripts/activities/eatMeal.tres" id="8_matsn"]
 [ext_resource type="Resource" uid="uid://b4kqspaumb6ib" path="res://scripts/activities/videoGames.tres" id="11_lubs0"]
+[ext_resource type="Resource" uid="uid://drev8q4ymquim" path="res://scripts/activities/drinkWater.tres" id="11_xe4so"]
 [ext_resource type="Resource" uid="uid://3evhlgxxx233" path="res://scripts/activities/videoGamesBinge.tres" id="12_qhf62"]
 [ext_resource type="Resource" uid="uid://bqbxfpx8u53vk" path="res://scripts/activities/shower.tres" id="14_k0l5l"]
+[ext_resource type="Resource" uid="uid://dyqp3beglkewy" path="res://scripts/activities/updateCV.tres" id="15_jfw8p"]
 [ext_resource type="Resource" uid="uid://csad4qornjpp8" path="res://scripts/activities/brushTeeth.tres" id="15_u3oc1"]
+[ext_resource type="Resource" uid="uid://csoknpljo1w50" path="res://scripts/activities/applyToJobs.tres" id="17_xe4so"]
+[ext_resource type="Resource" uid="uid://isql6h63ukuf" path="res://scripts/activities/laundry.tres" id="18_pcdei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a1u2p"]
 texture = ExtResource("1_5ty3s")
@@ -595,13 +600,17 @@ size_flags_vertical = 4
 position = Vector2(-57, 0)
 activities = Array[ExtResource("5_3vdx0")]([ExtResource("6_asdao"), ExtResource("7_k0l5l")])
 
+[node name="door" parent="." instance=ExtResource("4_k557q")]
+position = Vector2(48, 53)
+activities = Array[ExtResource("5_3vdx0")]([ExtResource("8_0m8ib")])
+
 [node name="counter" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(-64, -93)
 activities = Array[ExtResource("5_3vdx0")]([ExtResource("7_irwb2"), ExtResource("8_erum5")])
 
 [node name="fridge" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(-19, -93)
-activities = Array[ExtResource("5_3vdx0")]([ExtResource("7_irwb2"), ExtResource("8_matsn"), ExtResource("8_c2kll")])
+activities = Array[ExtResource("5_3vdx0")]([ExtResource("11_xe4so"), ExtResource("7_irwb2"), ExtResource("8_matsn"), ExtResource("8_c2kll")])
 
 [node name="bed" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(207, -50)
@@ -609,7 +618,7 @@ activities = Array[ExtResource("5_3vdx0")]([ExtResource("7_asdao")])
 
 [node name="PC" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(381, -62)
-activities = Array[ExtResource("5_3vdx0")]([ExtResource("11_lubs0"), ExtResource("12_qhf62")])
+activities = Array[ExtResource("5_3vdx0")]([ExtResource("11_lubs0"), ExtResource("12_qhf62"), ExtResource("15_jfw8p"), ExtResource("17_xe4so")])
 
 [node name="bath" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(383, 82)
@@ -618,6 +627,10 @@ activities = Array[ExtResource("5_3vdx0")]([ExtResource("14_k0l5l")])
 [node name="sink" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(329, 82)
 activities = Array[ExtResource("5_3vdx0")]([ExtResource("15_u3oc1")])
+
+[node name="laundry" parent="." instance=ExtResource("4_k557q")]
+position = Vector2(277, 82)
+activities = Array[ExtResource("5_3vdx0")]([ExtResource("18_pcdei")])
 
 [node name="StatTimer" type="Timer" parent="."]
 wait_time = 2.0
