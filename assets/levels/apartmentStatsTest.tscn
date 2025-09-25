@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cuelhgp57kgoa"]
+[gd_scene load_steps=25 format=4 uid="uid://cuelhgp57kgoa"]
 
 [ext_resource type="Texture2D" uid="uid://cle2dlomyga8k" path="res://assets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="1_5ty3s"]
 [ext_resource type="PackedScene" uid="uid://dwr1rcpqmf70c" path="res://assets/player_topdown.tscn" id="2_q00km"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://drev8q4ymquim" path="res://scripts/activities/drinkWater.tres" id="11_xe4so"]
 [ext_resource type="Resource" uid="uid://3evhlgxxx233" path="res://scripts/activities/videoGamesBinge.tres" id="12_qhf62"]
 [ext_resource type="Resource" uid="uid://bqbxfpx8u53vk" path="res://scripts/activities/shower.tres" id="14_k0l5l"]
+[ext_resource type="Resource" uid="uid://c7scafnxciev4" path="res://scripts/activities/doomScroll.tres" id="15_2gylh"]
 [ext_resource type="Resource" uid="uid://dyqp3beglkewy" path="res://scripts/activities/updateCV.tres" id="15_jfw8p"]
 [ext_resource type="Resource" uid="uid://csad4qornjpp8" path="res://scripts/activities/brushTeeth.tres" id="15_u3oc1"]
 [ext_resource type="Resource" uid="uid://csoknpljo1w50" path="res://scripts/activities/applyToJobs.tres" id="17_xe4so"]
@@ -614,7 +615,7 @@ activities = Array[ExtResource("5_3vdx0")]([ExtResource("11_xe4so"), ExtResource
 
 [node name="bed" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(207, -50)
-activities = Array[ExtResource("5_3vdx0")]([ExtResource("7_asdao")])
+activities = Array[ExtResource("5_3vdx0")]([ExtResource("7_asdao"), ExtResource("15_2gylh")])
 
 [node name="PC" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(381, -62)

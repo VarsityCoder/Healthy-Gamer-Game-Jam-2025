@@ -8,8 +8,8 @@ activity_name = "Do Dishes"
 duration_hours = 0.25
 effects = {
 "body": -1.0,
-"burnout": 1.0,
-"cognition": -5.0,
+"burnout": 5.0,
+"cognition": 1.0,
 "energy": -10.0
 }
 cooldown_hours = 8.0

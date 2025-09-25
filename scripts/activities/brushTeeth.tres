@@ -8,8 +8,8 @@ activity_name = "Brush Teeth"
 duration_hours = 0.25
 effects = {
 "body": 5.0,
-"burnout": -1.0,
-"cognition": -1.0,
+"burnout": -2.0,
+"cognition": 5.0,
 "energy": -5.0
 }
 statuses_removed = Array[String](["Grungy"])

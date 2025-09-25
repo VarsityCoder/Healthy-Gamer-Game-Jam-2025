@@ -9,7 +9,7 @@ duration_hours = 8.0
 effects = {
 "body": 10.0,
 "burnout": -20.0,
-"cognition": 10.0,
+"cognition": 20.0,
 "energy": 40.0
 }
 cooldown_hours = 4.0
