@@ -13,13 +13,13 @@ var last_used_time: float = -99999.0
 
 func is_available() -> bool:
 	# Check cooldown
-	if cooldown_hours > 0 and TimeManager.game_time - last_used_time < cooldown_hours * (Globals.seconds_per_day / 24.0):
+	if cooldown_hours > 0 and TimeManager.game_time - last_used_time < cooldown_hours * Globals.game_hour:
 		return false
 	
 	# Example special rule enforcement
 	if special_rule == "not after 7pm":
-		var hour = TimeManager.clock_time # int(floor(current_time / Globals.seconds_per_day) % 24)
-		if hour >= 19.0:  # 7pm
+		var hour = TimeManager.clock_time
+		if hour >= 19.0:
 			return false
 	
 	return true

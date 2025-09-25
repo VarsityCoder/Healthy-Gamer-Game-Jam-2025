@@ -29,9 +29,20 @@ func _process(delta: float) -> void:
 		clock_time_formatted += " AM"
 		
 	emit_signal("time_updated", game_time)
+	
+	# REMOVE LATER FOR TESTING
+	if Input.is_action_pressed("testTimeUp"):
+		set_time_dialation(5.0)
+		
+	if Input.is_action_pressed("testTimeDown"):
+		reset_time_dialation()
 
 func set_time_dialation(new_multiplier):
 	time_multiplier = new_multiplier
+	print("Time is now going ",new_multiplier,"x speed...")
 	
 func reset_time_dialation():
 	time_multiplier = 1.0
+	print("Time dialation reset.")
+
+# REMOVE LATER FOR TESTING
