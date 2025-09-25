@@ -29,3 +29,9 @@ func _process(delta: float) -> void:
 		clock_time_formatted += " AM"
 		
 	emit_signal("time_updated", game_time)
+
+func set_time_dialation(new_multiplier):
+	time_multiplier = new_multiplier
+	
+func reset_time_dialation():
+	time_multiplier = 1.0

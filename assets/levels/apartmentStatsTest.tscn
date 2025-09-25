@@ -618,3 +618,7 @@ activities = Array[ExtResource("5_3vdx0")]([ExtResource("14_k0l5l")])
 [node name="sink" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(329, 82)
 activities = Array[ExtResource("5_3vdx0")]([ExtResource("15_u3oc1")])
+
+[node name="StatTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
