@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="IsometricLifeGame"
-run/main_scene="uid://b5rvnr7a24g4c"
+run/main_scene="uid://cuelhgp57kgoa"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,7 @@ Globals="*res://scripts/globals.gd"
 StatsManager="*res://scripts/StatsManager.gd"
 CutsceneManager="*res://scripts/CutsceneManager.gd"
 ActivityManager="*res://scripts/ActivityManager.gd"
+TimeManager="*res://scripts/TimeManager.gd"
 
 [display]
 
@@ -68,6 +69,16 @@ changeScene1={
 changeScene2={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"key_label":0,"unicode":50,"location":0,"echo":false,"script":null)
+]
+}
+testTimeUp={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+testTimeDown={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

@@ -7,11 +7,11 @@ script = ExtResource("1_q51sk")
 activity_name = "Drink Coffee"
 duration_hours = 0.25
 effects = {
-"body": -2.0,
+"body": -5.0,
 "burnout": 1.0,
 "cognition": 10.0,
-"energy": -10.0
+"energy": 10.0
 }
 cooldown_hours = 4.0
-special_rule = "not after 7"
+special_rule = "not after 7pm"
 metadata/_custom_type_script = "uid://m8pebh44pmau"

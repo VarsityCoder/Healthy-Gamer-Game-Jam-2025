@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://b3ayu2oc1viet"]
+
+[ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_dl2cn"]
+
+[resource]
+script = ExtResource("1_dl2cn")
+activity_name = "Walk"
+duration_hours = 1.5
+effects = {
+"body": 10.0,
+"burnout": -1.0,
+"cognition": -10.0,
+"energy": -10.0
+}
+statuses_added = Array[String](["Grungy"])
+statuses_removed = Array[String](["Achey", "Overloaded"])
+cooldown_hours = 8.0
+metadata/_custom_type_script = "uid://m8pebh44pmau"

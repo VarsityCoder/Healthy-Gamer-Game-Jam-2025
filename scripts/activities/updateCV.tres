@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://dyqp3beglkewy"]
+
+[ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_w5s2x"]
+
+[resource]
+script = ExtResource("1_w5s2x")
+activity_name = "Update CV"
+duration_hours = 3.0
+effects = {
+"body": -15.0,
+"burnout": 10.0,
+"cognition": -15.0,
+"energy": -50.0
+}
+cooldown_hours = 1.0
+metadata/_custom_type_script = "uid://m8pebh44pmau"

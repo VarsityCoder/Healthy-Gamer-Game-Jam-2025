@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://drev8q4ymquim"]
+
+[ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_x4fym"]
+
+[resource]
+script = ExtResource("1_x4fym")
+activity_name = "Drink Water"
+duration_hours = 0.1
+effects = {
+"body": 10.0,
+"burnout": -5.0,
+"cognition": 10.0,
+"energy": 10.0
+}
+metadata/_custom_type_script = "uid://m8pebh44pmau"

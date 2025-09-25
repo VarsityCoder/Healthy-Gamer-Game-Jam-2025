@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://cy6cgtoelenfy"]
+
+[ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_m6bay"]
+
+[resource]
+script = ExtResource("1_m6bay")
+activity_name = "Meditate"
+duration_hours = 0.25
+effects = {
+"body": 1.0,
+"burnout": -15.0,
+"cognition": 5.0,
+"energy": 5.0
+}
+cooldown_hours = 1.0
+metadata/_custom_type_script = "uid://m8pebh44pmau"

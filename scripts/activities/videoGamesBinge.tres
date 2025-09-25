@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_w4uqn")
 activity_name = "Binge Video Games"
-duration_hours = 1.0
+duration_hours = 8.0
 effects = {
 "body": -40.0,
 "burnout": -20.0,
-"cognition": 30.0,
+"cognition": -30.0,
 "energy": -100.0
 }
 metadata/_custom_type_script = "uid://m8pebh44pmau"

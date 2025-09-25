@@ -11,19 +11,19 @@ class_name Command
 
 var last_used_time: float = -99999.0
 
-func is_available(current_time: float) -> bool:
+func is_available() -> bool:
 	# Check cooldown
-	if cooldown_hours > 0 and current_time - last_used_time < cooldown_hours * Globals.seconds_per_day:
+	if cooldown_hours > 0 and TimeManager.game_time - last_used_time < cooldown_hours * Globals.game_hour:
 		return false
 	
 	# Example special rule enforcement
 	if special_rule == "not after 7pm":
-		var hour = int(floor(current_time / Globals.seconds_per_day) % 24)
-		if hour >= 19:  # 7pm
+		var hour = TimeManager.clock_time
+		if hour >= 19.0:
 			return false
 	
 	return true
 
-func execute(player: Node) -> void:
-	CutsceneManager.start_activity(self, player)
-	last_used_time = StatsManager.game_time
+func execute() -> void:
+	CutsceneManager.start_activity(self)
+	last_used_time = TimeManager.game_time
