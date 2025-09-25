@@ -62,7 +62,13 @@ func hide_cutscene_overlay():
 
 func show_actions(commands: Array[Command]) -> void:
 	_clear_actions()
-	for command in commands:
+	
+	var action_list = commands
+	
+	if "Overloaded" in StatsManager.statuses:
+		action_list.shuffle()
+	
+	for command in action_list:
 		var btn_scene = preload("res://assets/components/ActivityButton.tscn")
 		var btn = btn_scene.instantiate()
 		btn.command = command
