@@ -8,6 +8,7 @@ extends Control
 @onready var timer_text = $MarginContainer/MarginContainer/StatBars/TimeLeft
 @onready var statuses_text = $MarginContainer/MarginContainer/StatBars/PlayerStatuses
 @onready var overlay = $MarginContainer/CutsceneOverlay
+@onready var clock = $MarginContainer/MarginContainer/DateTime
 
 func _ready() -> void:
 	# Connect stats to UI bars
@@ -39,6 +40,8 @@ func _on_stat_changed(stat_name: String, value: float) -> void:
 			body_bar.value = value
 
 func _on_time_updated(_game_time: float):
+	var total_days = Globals.total_time / Globals.seconds_per_day
+	clock.text = "Day: " + str(total_days - TimeManager.days_left) + " Time: " + str(TimeManager.clock_time_formatted)
 	timer_text.text = "Time: " + str(snapped(TimeManager.clock_time, 0.01)) + ", " + str(TimeManager.days_left) + " Days, " + str(int(TimeManager.hours_left)) + " Hours, " + str(int(TimeManager.mins_left)) + " mins remaining..."
 
 func _on_activity_started(command: Command) -> void:

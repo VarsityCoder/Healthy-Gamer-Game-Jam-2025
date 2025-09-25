@@ -27,7 +27,8 @@ color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 59
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 60
 
@@ -94,3 +95,8 @@ text = "No Status Effects..."
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+
+[node name="DateTime" type="Label" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Date and Time"
