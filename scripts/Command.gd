@@ -20,7 +20,7 @@ func is_available() -> bool:
 		#if key != "burnout" and (StatsManager.stats[key] + effects[key]) <= 0:
 			#return false
 	
-	if activity_name != "Binge Video Games" and (StatsManager.stats["energy"] + effects["energy"]) <= 0:
+	if activity_name != "Binge Video Games" and activity_name != "Sleep" and (StatsManager.stats["energy"] + effects["energy"]) <= 0:
 			return false
 	
 	# Example special rule enforcement
