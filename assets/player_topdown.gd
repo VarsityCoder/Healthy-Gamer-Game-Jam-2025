@@ -9,19 +9,22 @@ func _process(delta: float) -> void:
 
 
 	if velocity.x > 0:
-		$AnimatedSprite2D.play("move_right")
+		$AnimatedSprite2D.play("walk_left")
+		$AnimatedSprite2D.flip_h = true
 		
 	elif velocity.x < 0:
-		$AnimatedSprite2D.play("move_left")
+		$AnimatedSprite2D.play("walk_left")
+		$AnimatedSprite2D.flip_h = false
 
 	elif velocity.y > 0:
-		$AnimatedSprite2D.play("move_down")
+		$AnimatedSprite2D.play("walk_left")
 		
 	elif velocity.y < 0:
-		$AnimatedSprite2D.play("move_up")
+		$AnimatedSprite2D.play("walk_left")
 
 	else:
-		$AnimatedSprite2D.stop()
+		#$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("idle")
 	
 	
 	move_and_slide()

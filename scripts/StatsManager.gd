@@ -3,8 +3,6 @@ extends Node
 signal stats_changed(stats)
 signal player_status_changed(statuses: Array[String])
 
-@onready var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
-
 var low_pass = AudioServer.get_bus_effect(1,0)
 
 var stats = {
@@ -17,7 +15,12 @@ var stats = {
 var statuses: Array[String] = []   # ["Hungry", "Grungy"]
 
 func _ready() -> void:
-	stat_timer.timeout.connect(_on_stat_timer_timeout)
+	#var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
+	var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
+	if stat_timer:
+		stat_timer.timeout.connect(_on_stat_timer_timeout)
+	else:
+		print("couldn't find node!")
 	
 func initStats():
 	emit_signal("stats_changed", stats)
