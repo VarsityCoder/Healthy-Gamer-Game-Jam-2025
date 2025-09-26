@@ -22,12 +22,17 @@ StatsManager="*res://scripts/StatsManager.gd"
 CutsceneManager="*res://scripts/CutsceneManager.gd"
 ActivityManager="*res://scripts/ActivityManager.gd"
 TimeManager="*res://scripts/TimeManager.gd"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
 
 [global_group]
 

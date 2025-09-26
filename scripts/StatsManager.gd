@@ -5,6 +5,8 @@ signal player_status_changed(statuses: Array[String])
 
 @onready var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
 
+var low_pass = AudioServer.get_bus_effect(1,0)
+
 var stats = {
 	"energy": 100,
 	"burnout": 0,
@@ -19,6 +21,7 @@ func _ready() -> void:
 	
 func initStats():
 	emit_signal("stats_changed", stats)
+	low_pass.cutoff_hz = 20500
 	
 func _on_stat_timer_timeout():
 	# Check if any activities haven't been done in a while	
@@ -71,6 +74,7 @@ func get_stat(statName: String) -> float:
 func set_stat(statName: String, value: float) -> void:
 	if not stats.has(statName): return
 	stats[statName] = clamp(value, 0, 100)
+	#low_pass.cutoff_hz = value*100
 	
 	# Special Conditions
 	if stats["cognition"] < 25:

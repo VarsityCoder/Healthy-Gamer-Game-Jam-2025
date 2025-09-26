@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5rak3yys72e3"]
+[gd_scene load_steps=7 format=3 uid="uid://c5rak3yys72e3"]
 
 [ext_resource type="Script" uid="uid://b7yihase4xcgw" path="res://assets/components/activity_button.gd" id="3_8sfqh"]
+[ext_resource type="AudioStream" uid="uid://lnw8ec25avmo" path="res://assets/sfx/sfx_making_bed.wav" id="3_q4kae"]
+[ext_resource type="AudioStream" uid="uid://rphv7y0uw6dn" path="res://assets/sfx/sfx_meditation.wav" id="4_kcxhi"]
 [ext_resource type="Resource" uid="uid://cu18d33g46ui1" path="res://scripts/activities/yoga.tres" id="4_xi824"]
+[ext_resource type="AudioStream" uid="uid://plp2xfb7e7nb" path="res://assets/sfx/sfx_shower.wav" id="5_d0ixt"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_btnhb"]
+shuffle = true
+loop = false
+stream_count = 3
+stream_0 = ExtResource("3_q4kae")
+stream_1 = ExtResource("4_kcxhi")
+stream_2 = ExtResource("5_d0ixt")
 
 [node name="ActivityButton" type="Button"]
 text = "Text"
 script = ExtResource("3_8sfqh")
 command = ExtResource("4_xi824")
+sfx = SubResource("AudioStreamPlaylist_btnhb")
 
 [node name="Cooldown" type="ProgressBar" parent="."]
 layout_mode = 1

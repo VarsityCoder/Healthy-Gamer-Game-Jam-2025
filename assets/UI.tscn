@@ -1,6 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxcf226mtr06g"]
+[gd_scene load_steps=14 format=3 uid="uid://dxcf226mtr06g"]
 
 [ext_resource type="Script" uid="uid://bwscnq5dvdssb" path="res://scripts/UIManager.gd" id="1_3fiu0"]
+[ext_resource type="AudioStream" uid="uid://d32pjhhnb6qlm" path="res://assets/music/Music_Apt_Melodics_01.ogg" id="2_cp485"]
+[ext_resource type="AudioStream" uid="uid://b2ccu4qxg3emb" path="res://assets/music/Music_Apt_Melodics_02.ogg" id="3_s3wm5"]
+[ext_resource type="AudioStream" uid="uid://dxyu7xgpchfeb" path="res://assets/music/Music_Apt_Melodics_03.ogg" id="4_fxr0u"]
+[ext_resource type="AudioStream" uid="uid://1002pphkia7h" path="res://assets/music/Music_Apt_Drums_High_01.ogg" id="5_hcqqh"]
+[ext_resource type="AudioStream" uid="uid://dxlq6na7si1n3" path="res://assets/music/Music_Apt_Drums_High_02.ogg" id="6_hcqqh"]
+[ext_resource type="AudioStream" uid="uid://cchwfm3hic362" path="res://assets/music/Music_Apt_Drums_High_03.ogg" id="7_15okx"]
+[ext_resource type="AudioStream" uid="uid://dxvdr1byp0tfe" path="res://assets/sfx/sfx_chips.wav" id="8_3e3np"]
+[ext_resource type="AudioStream" uid="uid://wbdp0tmxmlho" path="res://assets/sfx/sfx_cleaning.wav" id="9_waeax"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_y5svj"]
+stream_count = 2
+stream_0/stream = ExtResource("5_hcqqh")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_cp485")
+stream_1/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_hcqqh"]
+stream_count = 2
+stream_0/stream = ExtResource("6_hcqqh")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("3_s3wm5")
+stream_1/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_15okx"]
+stream_count = 2
+stream_0/stream = ExtResource("7_15okx")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("4_fxr0u")
+stream_1/volume = 0.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s3wm5"]
+streams_count = 3
+stream_0/stream = SubResource("AudioStreamSynchronized_y5svj")
+stream_0/weight = 33.3
+stream_1/stream = SubResource("AudioStreamSynchronized_hcqqh")
+stream_1/weight = 33.3
+stream_2/stream = SubResource("AudioStreamSynchronized_15okx")
+stream_2/weight = 33.3
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -10,6 +48,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3fiu0")
+music = SubResource("AudioStreamRandomizer_s3wm5")
+sfx = Array[AudioStream]([ExtResource("8_3e3np"), ExtResource("9_waeax")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

@@ -1,10 +1,12 @@
-[gd_scene load_steps=24 format=4 uid="uid://cuelhgp57kgoa"]
+[gd_scene load_steps=26 format=4 uid="uid://cuelhgp57kgoa"]
 
 [ext_resource type="Texture2D" uid="uid://cle2dlomyga8k" path="res://assets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="1_5ty3s"]
 [ext_resource type="PackedScene" uid="uid://dwr1rcpqmf70c" path="res://assets/player_topdown.tscn" id="2_q00km"]
 [ext_resource type="PackedScene" uid="uid://dxcf226mtr06g" path="res://assets/UI.tscn" id="3_q00km"]
+[ext_resource type="AudioStream" uid="uid://csmnnymjuebjm" path="res://assets/sfx/sfx_phone_ring.wav" id="4_ep3b3"]
 [ext_resource type="PackedScene" uid="uid://vhk54d2kchup" path="res://assets/components/Interactable.tscn" id="4_k557q"]
 [ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="5_3vdx0"]
+[ext_resource type="AudioStream" uid="uid://plp2xfb7e7nb" path="res://assets/sfx/sfx_shower.wav" id="5_e8byr"]
 [ext_resource type="Resource" uid="uid://cu18d33g46ui1" path="res://scripts/activities/yoga.tres" id="6_asdao"]
 [ext_resource type="Resource" uid="uid://30aif5ma7les" path="res://scripts/activities/sleep.tres" id="7_asdao"]
 [ext_resource type="Resource" uid="uid://b1vyuu4d50b1r" path="res://scripts/activities/drinkCoffee.tres" id="7_irwb2"]
@@ -595,6 +597,7 @@ zoom = Vector2(4, 4)
 [node name="Ui" parent="CanvasLayer" instance=ExtResource("3_q00km")]
 size_flags_horizontal = 4
 size_flags_vertical = 4
+sfx = Array[AudioStream]([ExtResource("4_ep3b3"), ExtResource("5_e8byr")])
 
 [node name="yogaMat" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(-57, 0)

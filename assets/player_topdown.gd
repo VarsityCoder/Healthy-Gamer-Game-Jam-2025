@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-
 @export var SPEED = 100.0
-
 
 func _process(delta: float) -> void:
 	var move_vector : Vector2 = Input.get_vector("left", "right","up", "down")

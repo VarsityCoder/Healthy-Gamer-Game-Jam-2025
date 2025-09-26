@@ -10,6 +10,9 @@ extends Control
 @onready var overlay = $MarginContainer/CutsceneOverlay
 @onready var clock = $MarginContainer/MarginContainer/DateTime
 
+@export var music : AudioStream
+@export var sfx : Array[AudioStream]
+
 func _ready() -> void:
 	# Connect stats to UI bars
 	StatsManager.stats_changed.connect(_on_stats_changed)
@@ -18,6 +21,7 @@ func _ready() -> void:
 	CutsceneManager.activity_started.connect(_on_activity_started)
 	CutsceneManager.activity_finished.connect(_on_activity_finished)
 	StatsManager.initStats()
+	SoundManager.play_music(music)
 	hide_cutscene_overlay()
 
 func _on_player_status_changed(statuses):
@@ -42,11 +46,13 @@ func _on_time_updated(_game_time: float):
 func _on_activity_started(command: Command) -> void:
 	print("Started:", command.activity_name)
 	# ADD FUNCTIONALITY FOR ANIMATIONS
+	SoundManager.play_sound(sfx[0])
 	show_cutscene_overlay()
 
 func _on_activity_finished(command: Command) -> void:
 	print("Ended:", command.activity_name)
 	# HIDE ANIMATIONS
+	SoundManager.stop_sound(sfx[0])
 	_clear_actions()
 	hide_cutscene_overlay()
 
