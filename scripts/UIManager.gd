@@ -14,25 +14,21 @@ extends Control
 @export var drums : Array[AudioStream]
 @export var sfx : Array[AudioStream]
 
+var current_melody = randi_range(0, music.size()-1)
+var current_drums = randi_range(0, drums.size()-1)
+
 func _ready() -> void:
 	# Connect stats to UI bars
 	StatsManager.stats_changed.connect(_on_stats_changed)
 	StatsManager.player_status_changed.connect(_on_player_status_changed)
 	TimeManager.time_updated.connect(_on_time_updated)
+	TimeManager.day_updated.connect(_on_day_updated)
 	CutsceneManager.activity_started.connect(_on_activity_started)
 	CutsceneManager.activity_finished.connect(_on_activity_finished)
 	StatsManager.initStats()
 	hide_cutscene_overlay()
 	
-	if music.size() > 0:
-		var rand = randi_range(0, music.size()-1)
-		var rand_drums = randi_range(0, drums.size()-1)
-		print("MUSIC: Current track: #",rand," - ", music[rand].resource_path.get_file().get_basename())
-		print("MUSIC: Current drum track: #",rand_drums," - ", drums[rand_drums].resource_path.get_file().get_basename())
-		SoundManager.play_sound(music[rand])
-		SoundManager.play_sound(drums[rand_drums])
-	else:
-		print("Music has:", music)
+	change_music()
 
 func _on_player_status_changed(statuses):
 	var temp = "Status: "
@@ -49,9 +45,25 @@ func _on_stats_changed(stats) -> void:
 	body_bar.value = stats["body"]
 
 func _on_time_updated(_game_time: float):
-	var total_days = Globals.total_time / Globals.seconds_per_day
-	clock.text = "Day: " + str(total_days - TimeManager.days_left) + " Time: " + str(TimeManager.clock_time_formatted)
+	clock.text = "Day: " + str(TimeManager.current_day) + " Time: " + str(TimeManager.clock_time_formatted)
 	timer_text.text = "Time: " + str(snapped(TimeManager.clock_time, 0.01)) + ", " + str(TimeManager.days_left) + " Days, " + str(int(TimeManager.hours_left)) + " Hours, " + str(int(TimeManager.mins_left)) + " mins remaining..."
+
+func change_music():
+	if music.size() > 0:
+		SoundManager.stop_sound(music[current_melody])
+		SoundManager.stop_sound(drums[current_drums])
+		current_melody = randi_range(0, music.size()-1)
+		current_drums = randi_range(0, drums.size()-1)
+		print("MUSIC: Current track: #",current_melody," - ", music[current_melody].resource_path.get_file().get_basename())
+		print("MUSIC: Current drum track: #",current_drums," - ", drums[current_drums].resource_path.get_file().get_basename())
+		SoundManager.play_sound(music[current_melody])
+		SoundManager.play_sound(drums[current_drums])
+	else:
+		print("Music has:", music)
+		
+func _on_day_updated(current_day):
+	if current_day > 1:
+		change_music()
 
 func _on_activity_started(command: Command) -> void:
 	print("Started:", command.activity_name)
