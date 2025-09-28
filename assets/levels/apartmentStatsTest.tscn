@@ -37,7 +37,7 @@
 [ext_resource type="Resource" uid="uid://isql6h63ukuf" path="res://scripts/activities/laundry.tres" id="18_pcdei"]
 [ext_resource type="AudioStream" uid="uid://4ahmjfjhe31c" path="res://assets/sfx/sfx_vide_game.wav" id="18_rg4kn"]
 [ext_resource type="AudioStream" uid="uid://7w4w3plo3mwa" path="res://assets/sfx/sfx_typing_04.wav" id="19_ceukf"]
-[ext_resource type="AudioStream" uid="uid://bmubm0v2jkx7g" path="res://assets/sfx/sfx_footsteps_grass.wav" id="20_y5erg"]
+[ext_resource type="AudioStream" uid="uid://dpo1gngrvqob8" path="res://assets/sfx/sfx_opening_door.wav" id="19_y5erg"]
 [ext_resource type="AudioStream" uid="uid://c7ve0kt6nmcyk" path="res://assets/sfx/sfx_doing_laundry.wav" id="21_bvuh7"]
 [ext_resource type="AudioStream" uid="uid://rphv7y0uw6dn" path="res://assets/sfx/sfx_meditation.wav" id="22_4chvk"]
 [ext_resource type="AudioStream" uid="uid://ou1nuuggkmht" path="res://assets/sfx/sfx_footsteps_wood.wav" id="23_n6r3s"]
@@ -641,7 +641,7 @@ sfx = Dictionary[String, AudioStream]({
 "Sleep": ExtResource("24_roehw"),
 "Tidy Up": ExtResource("27_glgry"),
 "Update CV": ExtResource("19_ceukf"),
-"Walk": ExtResource("20_y5erg"),
+"Walk": ExtResource("19_y5erg"),
 "Yoga": ExtResource("23_n6r3s")
 })
 

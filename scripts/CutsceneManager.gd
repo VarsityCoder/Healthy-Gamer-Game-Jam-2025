@@ -39,6 +39,7 @@ func start_activity(command: Command) -> void:
 	
 	var sound_length = ui_manager.sfx[command.activity_name].get_length()
 	sound_length = 6 if sound_length > 6 or not sound_length else sound_length
+	
 	await get_tree().create_timer(sound_length).timeout  # fake transition
 	print(command.activity_name, " sound effect took ", sound_length)
 	

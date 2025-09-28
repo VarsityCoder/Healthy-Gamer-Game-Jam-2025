@@ -28,6 +28,8 @@ func _ready() -> void:
 	StatsManager.initStats()
 	hide_cutscene_overlay()
 	
+	#SoundManager.set_ambient_sound_volume(0.7)
+	SoundManager.set_default_ambient_sound_bus("ambient")
 	change_music()
 
 func _on_player_status_changed(statuses):
@@ -69,7 +71,7 @@ func _on_activity_started(command: Command) -> void:
 	print("Started:", command.activity_name)
 	# ADD FUNCTIONALITY FOR ANIMATIONS
 	if command.activity_name in sfx:
-		SoundManager.play_sound(sfx[command.activity_name])
+		SoundManager.play_ambient_sound(sfx[command.activity_name]) #.set_sound_volume(0.7)
 		
 	show_cutscene_overlay()
 
@@ -77,7 +79,7 @@ func _on_activity_finished(command: Command) -> void:
 	print("Ended:", command.activity_name)
 	# HIDE ANIMATIONS
 	if command.activity_name in sfx:
-		SoundManager.stop_sound(sfx[command.activity_name])
+		SoundManager.stop_ambient_sound(sfx[command.activity_name])
 	_clear_actions()
 	hide_cutscene_overlay()
 
