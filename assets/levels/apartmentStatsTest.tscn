@@ -1,10 +1,9 @@
-[gd_scene load_steps=39 format=4 uid="uid://cuelhgp57kgoa"]
+[gd_scene load_steps=51 format=4 uid="uid://cuelhgp57kgoa"]
 
 [ext_resource type="Texture2D" uid="uid://cle2dlomyga8k" path="res://assets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="1_5ty3s"]
 [ext_resource type="Texture2D" uid="uid://3krkkr1dfkxd" path="res://assets/art/mapdraft.png" id="1_e8byr"]
 [ext_resource type="PackedScene" uid="uid://dwr1rcpqmf70c" path="res://assets/player_topdown.tscn" id="2_q00km"]
 [ext_resource type="PackedScene" uid="uid://dxcf226mtr06g" path="res://assets/UI.tscn" id="3_q00km"]
-[ext_resource type="AudioStream" uid="uid://csmnnymjuebjm" path="res://assets/sfx/sfx_phone_ring.wav" id="4_ep3b3"]
 [ext_resource type="PackedScene" uid="uid://vhk54d2kchup" path="res://assets/components/Interactable.tscn" id="4_k557q"]
 [ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="5_3vdx0"]
 [ext_resource type="AudioStream" uid="uid://plp2xfb7e7nb" path="res://assets/sfx/sfx_shower.wav" id="5_e8byr"]
@@ -36,6 +35,19 @@
 [ext_resource type="AudioStream" uid="uid://cchwfm3hic362" path="res://assets/music/Music_Apt_Drums_High_03.ogg" id="16_gvvb1"]
 [ext_resource type="Resource" uid="uid://csoknpljo1w50" path="res://scripts/activities/applyToJobs.tres" id="17_xe4so"]
 [ext_resource type="Resource" uid="uid://isql6h63ukuf" path="res://scripts/activities/laundry.tres" id="18_pcdei"]
+[ext_resource type="AudioStream" uid="uid://4ahmjfjhe31c" path="res://assets/sfx/sfx_vide_game.wav" id="18_rg4kn"]
+[ext_resource type="AudioStream" uid="uid://7w4w3plo3mwa" path="res://assets/sfx/sfx_typing_04.wav" id="19_ceukf"]
+[ext_resource type="AudioStream" uid="uid://bmubm0v2jkx7g" path="res://assets/sfx/sfx_footsteps_grass.wav" id="20_y5erg"]
+[ext_resource type="AudioStream" uid="uid://c7ve0kt6nmcyk" path="res://assets/sfx/sfx_doing_laundry.wav" id="21_bvuh7"]
+[ext_resource type="AudioStream" uid="uid://rphv7y0uw6dn" path="res://assets/sfx/sfx_meditation.wav" id="22_4chvk"]
+[ext_resource type="AudioStream" uid="uid://ou1nuuggkmht" path="res://assets/sfx/sfx_footsteps_wood.wav" id="23_n6r3s"]
+[ext_resource type="AudioStream" uid="uid://bphh2s5lgory" path="res://assets/sfx/sfx_going_to_bed.wav" id="24_roehw"]
+[ext_resource type="AudioStream" uid="uid://dxvdr1byp0tfe" path="res://assets/sfx/sfx_chips.wav" id="26_vnkj6"]
+[ext_resource type="AudioStream" uid="uid://wbdp0tmxmlho" path="res://assets/sfx/sfx_cleaning.wav" id="27_glgry"]
+[ext_resource type="AudioStream" uid="uid://dc74sxxc6mgk" path="res://assets/sfx/sfx_making_coffee.wav" id="28_wrnvf"]
+[ext_resource type="AudioStream" uid="uid://c54sbkptrsth0" path="res://assets/sfx/sfx_double_click_02.wav" id="29_ceukf"]
+[ext_resource type="AudioStream" uid="uid://q0hrjiuu3pxe" path="res://assets/sfx/sfx_doing_dishes.wav" id="29_rg4kn"]
+[ext_resource type="AudioStream" uid="uid://rdnndno6vkf3" path="res://assets/sfx/sfx_cooking.wav" id="30_ceukf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a1u2p"]
 texture = ExtResource("1_5ty3s")
@@ -614,7 +626,24 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 music = Array[AudioStream]([ExtResource("5_yxb7c"), ExtResource("6_3n1t4"), ExtResource("7_uqxpw")])
 drums = Array[AudioStream]([ExtResource("8_ugg52"), ExtResource("9_xsgy7"), ExtResource("10_21lnw"), ExtResource("11_nww3j"), ExtResource("12_fjd4m"), ExtResource("13_16r6b"), ExtResource("14_rhir8"), ExtResource("15_wrnrc"), ExtResource("16_gvvb1")])
-sfx = Array[AudioStream]([ExtResource("4_ep3b3"), ExtResource("5_e8byr")])
+sfx = Dictionary[String, AudioStream]({
+"Apply to Jobs": ExtResource("29_ceukf"),
+"Binge Video Games": ExtResource("18_rg4kn"),
+"Brush Teeth": ExtResource("29_rg4kn"),
+"Do Dishes": ExtResource("29_rg4kn"),
+"Drink Coffee": ExtResource("28_wrnvf"),
+"Eat Meal": ExtResource("30_ceukf"),
+"Eat Snack": ExtResource("26_vnkj6"),
+"Laundry": ExtResource("21_bvuh7"),
+"Meditate": ExtResource("22_4chvk"),
+"Play Video Games": ExtResource("18_rg4kn"),
+"Shower": ExtResource("5_e8byr"),
+"Sleep": ExtResource("24_roehw"),
+"Tidy Up": ExtResource("27_glgry"),
+"Update CV": ExtResource("19_ceukf"),
+"Walk": ExtResource("20_y5erg"),
+"Yoga": ExtResource("23_n6r3s")
+})
 
 [node name="yogaMat" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(-25, 40)

@@ -12,7 +12,7 @@ extends Control
 
 @export var music : Array[AudioStream]
 @export var drums : Array[AudioStream]
-@export var sfx : Array[AudioStream]
+@export var sfx : Dictionary[String, AudioStream]
 
 var current_melody = randi_range(0, music.size()-1)
 var current_drums = randi_range(0, drums.size()-1)
@@ -68,13 +68,16 @@ func _on_day_updated(current_day):
 func _on_activity_started(command: Command) -> void:
 	print("Started:", command.activity_name)
 	# ADD FUNCTIONALITY FOR ANIMATIONS
-	SoundManager.play_sound(sfx[0])
+	if command.activity_name in sfx:
+		SoundManager.play_sound(sfx[command.activity_name])
+		
 	show_cutscene_overlay()
 
 func _on_activity_finished(command: Command) -> void:
 	print("Ended:", command.activity_name)
 	# HIDE ANIMATIONS
-	SoundManager.stop_sound(sfx[0])
+	if command.activity_name in sfx:
+		SoundManager.stop_sound(sfx[command.activity_name])
 	_clear_actions()
 	hide_cutscene_overlay()
 
