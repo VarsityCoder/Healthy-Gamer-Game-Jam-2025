@@ -10,7 +10,8 @@ extends Control
 @onready var overlay = $MarginContainer/CutsceneOverlay
 @onready var clock = $MarginContainer/MarginContainer/DateTime
 
-@export var music : AudioStream
+@export var music : Array[AudioStream]
+@export var drums : Array[AudioStream]
 @export var sfx : Array[AudioStream]
 
 func _ready() -> void:
@@ -21,8 +22,17 @@ func _ready() -> void:
 	CutsceneManager.activity_started.connect(_on_activity_started)
 	CutsceneManager.activity_finished.connect(_on_activity_finished)
 	StatsManager.initStats()
-	SoundManager.play_music(music)
 	hide_cutscene_overlay()
+	
+	if music.size() > 0:
+		var rand = randi_range(0, music.size()-1)
+		var rand_drums = randi_range(0, drums.size()-1)
+		print("MUSIC: Current track: #",rand," - ", music[rand].resource_path.get_file().get_basename())
+		print("MUSIC: Current drum track: #",rand_drums," - ", drums[rand_drums].resource_path.get_file().get_basename())
+		SoundManager.play_sound(music[rand])
+		SoundManager.play_sound(drums[rand_drums])
+	else:
+		print("Music has:", music)
 
 func _on_player_status_changed(statuses):
 	var temp = "Status: "
