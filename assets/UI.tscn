@@ -74,13 +74,14 @@ theme_override_constants/margin_bottom = 60
 
 [node name="StatBars" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/separation = 19
 alignment = 1
 
 [node name="EnergyBar" type="ProgressBar" parent="MarginContainer/MarginContainer/StatBars"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Energy" type="Label" parent="MarginContainer/MarginContainer/StatBars/EnergyBar"]
 layout_mode = 0
@@ -90,7 +91,9 @@ offset_bottom = 5.0
 text = "Energy"
 
 [node name="BodyBar" type="ProgressBar" parent="MarginContainer/MarginContainer/StatBars"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
 
 [node name="Physical" type="Label" parent="MarginContainer/MarginContainer/StatBars/BodyBar"]
@@ -101,7 +104,9 @@ offset_bottom = 5.0
 text = "Physical"
 
 [node name="BurnoutBar" type="ProgressBar" parent="MarginContainer/MarginContainer/StatBars"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
 
 [node name="Burnout" type="Label" parent="MarginContainer/MarginContainer/StatBars/BurnoutBar"]
@@ -112,7 +117,9 @@ offset_bottom = 5.0
 text = "Burnout"
 
 [node name="CognitionBar" type="ProgressBar" parent="MarginContainer/MarginContainer/StatBars"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
 
 [node name="Cognition" type="Label" parent="MarginContainer/MarginContainer/StatBars/CognitionBar"]
