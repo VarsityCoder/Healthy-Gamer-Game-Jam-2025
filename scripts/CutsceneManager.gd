@@ -42,7 +42,8 @@ func start_activity(command: Command) -> void:
 		
 	# Special case for Apply for Jobs
 	if command.activity_name == "Apply to Jobs":
-		WinStateManager.check_job_stats()
+		if WinStateManager.check_job_stats() == "failed ATS":
+			WinStateManager.send_default_email()
 		
 	# if we update our cv enough we will have a better chance at the job
 	if command.activity_name == "Update CV":
