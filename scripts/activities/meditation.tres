@@ -14,4 +14,5 @@ effects = {
 }
 statuses_removed = Array[String](["Overloaded"])
 cooldown_hours = 1.0
+prereqs = Array[String](["Tidy Up"])
 metadata/_custom_type_script = "uid://m8pebh44pmau"

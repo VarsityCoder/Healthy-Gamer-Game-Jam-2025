@@ -4,6 +4,11 @@ extends Node
 @onready var ui_manager = get_tree().get_root().get_node("Apartment/CanvasLayer/Ui")
 
 var past_actions = []
+var current_time_since_all = {}
+var prereqs = {
+	"Eat Meal": 1,
+	"Yoga":1
+}
 
 func _ready() -> void:
 	past_actions.append({
@@ -42,6 +47,7 @@ func time_since_all():
 			#print(past_actions[i])
 			if past_actions[i]["Activity"] not in result:
 				result[past_actions[i]["Activity"]] = TimeManager.game_time - past_actions[i]["Time"]
+	current_time_since_all = result
 	return result
 
 func availableActions(actions):

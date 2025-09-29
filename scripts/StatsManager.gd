@@ -58,13 +58,12 @@ func _on_stat_timer_timeout():
 	if "Overloaded" in statuses:
 		print("Feeling Overloaded, lowering stats...")
 		stats["energy"] = stats["energy"] - 1 * TimeManager.time_multiplier
-		stats["burnout"] = stats["burnout"] + 2 * TimeManager.time_multiplier
+		stats["burnout"] = stats["burnout"] + 1 * TimeManager.time_multiplier
 		stats["cognition"] = clamp(stats["cognition"], 0, 40)
 		stat_change = true
 		
 	if "Hungry" in statuses:
 		print("Feeling Hungry, lowering stats...")
-		stats["energy"] = stats["energy"] - 1 * TimeManager.time_multiplier
 		stats["burnout"] = stats["burnout"] + 2 * TimeManager.time_multiplier
 		stats["cognition"] = stats["cognition"] - 2 * TimeManager.time_multiplier
 		stat_change = true
