@@ -35,8 +35,6 @@ func is_available() -> bool:
 	# if we found our prereq in the past activities and not ourselves we can do it
 	# do dishes after you make a meal
 	
-	# if we update our cv enough we will have a better chance at the job
-	
 	# Example special rule enforcement
 	if special_rule == "not after 7pm":
 		var hour = TimeManager.clock_time

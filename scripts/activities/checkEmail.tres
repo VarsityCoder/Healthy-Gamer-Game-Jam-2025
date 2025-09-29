@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://44jee0ffiwn1"]
+
+[ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_6he0m"]
+
+[resource]
+script = ExtResource("1_6he0m")
+activity_name = "Check Email"
+duration_hours = 0.5
+effects = {
+"body": 0.0,
+"burnout": 5.0,
+"cognition": -10.0,
+"energy": -15.0
+}
+metadata/_custom_type_script = "uid://m8pebh44pmau"

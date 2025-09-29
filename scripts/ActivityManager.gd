@@ -39,6 +39,13 @@ func time_since(activity_name: Array[String]):
 	for action in past_actions.reversed():
 		if action["Activity"] in activity_name:
 			return TimeManager.game_time - action["Time"]
+			
+func activity_count(activity_name: String):
+	var result = 0
+	for action in past_actions:
+		if action["Activity"] == activity_name:
+			result = result + 1
+	return result
 
 func time_since_all():
 	var result = {}

@@ -57,7 +57,7 @@ func _on_stat_timer_timeout():
 		
 	if "Overloaded" in statuses:
 		print("Feeling Overloaded, lowering stats...")
-		stats["energy"] = stats["energy"] - 1 * TimeManager.time_multiplier
+		# stats["energy"] = stats["energy"] - 1 * TimeManager.time_multiplier
 		stats["burnout"] = stats["burnout"] + 1 * TimeManager.time_multiplier
 		stats["cognition"] = clamp(stats["cognition"], 0, 40)
 		stat_change = true
