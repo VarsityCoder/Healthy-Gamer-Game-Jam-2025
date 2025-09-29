@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://cuelhgp57kgoa"]
+[gd_scene load_steps=52 format=4 uid="uid://cuelhgp57kgoa"]
 
 [ext_resource type="Texture2D" uid="uid://cle2dlomyga8k" path="res://assets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="1_5ty3s"]
 [ext_resource type="Texture2D" uid="uid://3krkkr1dfkxd" path="res://assets/art/mapdraft.png" id="1_e8byr"]
@@ -633,6 +633,7 @@ sfx = Dictionary[String, AudioStream]({
 "Brush Teeth": ExtResource("29_rg4kn"),
 "Do Dishes": ExtResource("29_rg4kn"),
 "Drink Coffee": ExtResource("28_wrnvf"),
+"Drink Water": ExtResource("28_wrnvf"),
 "Eat Meal": ExtResource("30_ceukf"),
 "Eat Snack": ExtResource("26_vnkj6"),
 "Laundry": ExtResource("21_bvuh7"),
