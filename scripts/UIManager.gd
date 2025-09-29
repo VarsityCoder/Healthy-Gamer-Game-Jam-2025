@@ -28,7 +28,7 @@ func _ready() -> void:
 	StatsManager.initStats()
 	hide_cutscene_overlay()
 	
-	#SoundManager.set_ambient_sound_volume(0.7)
+	#SoundManager.set_ambient_sound_volume(0.7)sd
 	SoundManager.set_default_ambient_sound_bus("ambient")
 	change_music()
 
