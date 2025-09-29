@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cuelhgp57kgoa"]
+[gd_scene load_steps=45 format=4 uid="uid://cuelhgp57kgoa"]
 
 [ext_resource type="Texture2D" uid="uid://cle2dlomyga8k" path="res://assets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="1_5ty3s"]
 [ext_resource type="Texture2D" uid="uid://3krkkr1dfkxd" path="res://assets/art/mapdraft.png" id="1_e8byr"]
@@ -26,11 +26,13 @@
 [ext_resource type="Resource" uid="uid://isql6h63ukuf" path="res://scripts/activities/laundry.tres" id="18_pcdei"]
 [ext_resource type="AudioStream" uid="uid://4ahmjfjhe31c" path="res://assets/sfx/sfx_vide_game.wav" id="18_rg4kn"]
 [ext_resource type="AudioStream" uid="uid://7w4w3plo3mwa" path="res://assets/sfx/sfx_typing_04.wav" id="19_ceukf"]
+[ext_resource type="AudioStream" uid="uid://x3jj0vwgg05d" path="res://assets/sfx/sfx_multiple_clicks_04.wav" id="19_nww3j"]
 [ext_resource type="AudioStream" uid="uid://dpo1gngrvqob8" path="res://assets/sfx/sfx_opening_door.wav" id="19_y5erg"]
+[ext_resource type="AudioStream" uid="uid://co0mmxv34i1n2" path="res://assets/sfx/sfx_typing_05.wav" id="20_16r6b"]
 [ext_resource type="AudioStream" uid="uid://c7ve0kt6nmcyk" path="res://assets/sfx/sfx_doing_laundry.wav" id="21_bvuh7"]
 [ext_resource type="AudioStream" uid="uid://rphv7y0uw6dn" path="res://assets/sfx/sfx_meditation.wav" id="22_4chvk"]
 [ext_resource type="AudioStream" uid="uid://ou1nuuggkmht" path="res://assets/sfx/sfx_footsteps_wood.wav" id="23_n6r3s"]
-[ext_resource type="Resource" path="res://scripts/activities/tidyUp.tres" id="23_xsgy7"]
+[ext_resource type="Resource" uid="uid://8o3sh5kwv8eh" path="res://scripts/activities/tidyUp.tres" id="23_xsgy7"]
 [ext_resource type="AudioStream" uid="uid://bphh2s5lgory" path="res://assets/sfx/sfx_going_to_bed.wav" id="24_roehw"]
 [ext_resource type="AudioStream" uid="uid://dxvdr1byp0tfe" path="res://assets/sfx/sfx_chips.wav" id="26_vnkj6"]
 [ext_resource type="AudioStream" uid="uid://wbdp0tmxmlho" path="res://assets/sfx/sfx_cleaning.wav" id="27_glgry"]
@@ -38,6 +40,8 @@
 [ext_resource type="AudioStream" uid="uid://c54sbkptrsth0" path="res://assets/sfx/sfx_double_click_02.wav" id="29_ceukf"]
 [ext_resource type="AudioStream" uid="uid://q0hrjiuu3pxe" path="res://assets/sfx/sfx_doing_dishes.wav" id="29_rg4kn"]
 [ext_resource type="AudioStream" uid="uid://rdnndno6vkf3" path="res://assets/sfx/sfx_cooking.wav" id="30_ceukf"]
+[ext_resource type="Resource" uid="uid://44jee0ffiwn1" path="res://scripts/activities/checkEmail.tres" id="32_21lnw"]
+[ext_resource type="Resource" uid="uid://by08761c3dtcw" path="res://scripts/activities/practiceInterview.tres" id="39_rhir8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a1u2p"]
 texture = ExtResource("1_5ty3s")
@@ -618,6 +622,7 @@ sfx = Dictionary[String, AudioStream]({
 "Apply to Jobs": ExtResource("29_ceukf"),
 "Binge Video Games": ExtResource("18_rg4kn"),
 "Brush Teeth": ExtResource("29_rg4kn"),
+"Check Email": ExtResource("19_nww3j"),
 "Do Dishes": ExtResource("29_rg4kn"),
 "Drink Coffee": ExtResource("28_wrnvf"),
 "Drink Water": ExtResource("28_wrnvf"),
@@ -626,6 +631,7 @@ sfx = Dictionary[String, AudioStream]({
 "Laundry": ExtResource("21_bvuh7"),
 "Meditate": ExtResource("22_4chvk"),
 "Play Video Games": ExtResource("18_rg4kn"),
+"Practice For Interviews": ExtResource("20_16r6b"),
 "Shower": ExtResource("5_e8byr"),
 "Sleep": ExtResource("24_roehw"),
 "Tidy Up": ExtResource("27_glgry"),
@@ -656,7 +662,7 @@ activities = Array[ExtResource("5_3vdx0")]([ExtResource("7_asdao"), ExtResource(
 
 [node name="PC" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(315, -42)
-activities = Array[ExtResource("5_3vdx0")]([ExtResource("11_lubs0"), ExtResource("12_qhf62"), ExtResource("15_jfw8p"), ExtResource("17_xe4so")])
+activities = Array[ExtResource("5_3vdx0")]([ExtResource("32_21lnw"), ExtResource("11_lubs0"), ExtResource("12_qhf62"), ExtResource("15_jfw8p"), ExtResource("17_xe4so"), ExtResource("39_rhir8")])
 
 [node name="bath" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(325, 117)

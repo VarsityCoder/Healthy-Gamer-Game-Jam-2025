@@ -37,8 +37,28 @@ func start_activity(command: Command) -> void:
 	
 	# Special cases like sleep
 	if command.activity_name == "Sleep":
-		var energy_val = 100 - StatsManager.get_stat("burnout")
+		var energy_val = 100 - floor(StatsManager.get_stat("burnout") / 2)
 		StatsManager.set_stat("energy", max(0, energy_val))
+		
+	# Special case for Apply for Jobs
+	if command.activity_name == "Apply to Jobs":
+		WinStateManager.check_job_stats()
+		
+	# if we update our cv enough we will have a better chance at the job
+	if command.activity_name == "Update CV":
+		WinStateManager.cv_updates += 1
+		print("Total CV updates is now ", WinStateManager.cv_updates)
+	if command.activity_name == "Practice For Interviews":
+		WinStateManager.practice_interviews += 1
+		print("Total Practice Interviews is now ", WinStateManager.practice_interviews)
+	
+	# Special case for emails
+	if command.activity_name == "Check Email":
+		#if TimeManager.clock_time > 9.0:
+			# DIALOGUE BOX
+		print("EMAILS: ", WinStateManager.emails)
+		for i in WinStateManager.emails:
+			print(i)
 	
 	var sound_length = 2
 	if command.activity_name in ui_manager.sfx:
