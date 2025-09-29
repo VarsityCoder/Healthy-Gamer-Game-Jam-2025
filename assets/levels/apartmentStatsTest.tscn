@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://cuelhgp57kgoa"]
+[gd_scene load_steps=40 format=4 uid="uid://cuelhgp57kgoa"]
 
 [ext_resource type="Texture2D" uid="uid://cle2dlomyga8k" path="res://assets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="1_5ty3s"]
 [ext_resource type="Texture2D" uid="uid://3krkkr1dfkxd" path="res://assets/art/mapdraft.png" id="1_e8byr"]
@@ -7,33 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://vhk54d2kchup" path="res://assets/components/Interactable.tscn" id="4_k557q"]
 [ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="5_3vdx0"]
 [ext_resource type="AudioStream" uid="uid://plp2xfb7e7nb" path="res://assets/sfx/sfx_shower.wav" id="5_e8byr"]
-[ext_resource type="AudioStream" uid="uid://d32pjhhnb6qlm" path="res://assets/music/Music_Apt_Melodics_01.ogg" id="5_yxb7c"]
-[ext_resource type="AudioStream" uid="uid://b2ccu4qxg3emb" path="res://assets/music/Music_Apt_Melodics_02.ogg" id="6_3n1t4"]
 [ext_resource type="Resource" uid="uid://cu18d33g46ui1" path="res://scripts/activities/yoga.tres" id="6_asdao"]
 [ext_resource type="Resource" uid="uid://30aif5ma7les" path="res://scripts/activities/sleep.tres" id="7_asdao"]
 [ext_resource type="Resource" uid="uid://b1vyuu4d50b1r" path="res://scripts/activities/drinkCoffee.tres" id="7_irwb2"]
 [ext_resource type="Resource" uid="uid://cy6cgtoelenfy" path="res://scripts/activities/meditation.tres" id="7_k0l5l"]
-[ext_resource type="AudioStream" uid="uid://dxyu7xgpchfeb" path="res://assets/music/Music_Apt_Melodics_03.ogg" id="7_uqxpw"]
 [ext_resource type="Resource" uid="uid://b3ayu2oc1viet" path="res://scripts/activities/walk.tres" id="8_0m8ib"]
 [ext_resource type="Resource" uid="uid://b2qgh54du1pao" path="res://scripts/activities/eatSnack.tres" id="8_c2kll"]
 [ext_resource type="Resource" uid="uid://dwed3nxbeoupo" path="res://scripts/activities/dishes.tres" id="8_erum5"]
 [ext_resource type="Resource" uid="uid://dtiadjolcn56j" path="res://scripts/activities/eatMeal.tres" id="8_matsn"]
-[ext_resource type="AudioStream" uid="uid://bxlici26bmd7r" path="res://assets/music/Music_Apt_Drums_Low_01.ogg" id="8_ugg52"]
-[ext_resource type="AudioStream" uid="uid://jlh3ut81bcn1" path="res://assets/music/Music_Apt_Drums_Low_02.ogg" id="9_xsgy7"]
-[ext_resource type="AudioStream" uid="uid://cmxvx63a3owf5" path="res://assets/music/Music_Apt_Drums_Low_03.ogg" id="10_21lnw"]
 [ext_resource type="Resource" uid="uid://b4kqspaumb6ib" path="res://scripts/activities/videoGames.tres" id="11_lubs0"]
-[ext_resource type="AudioStream" uid="uid://dpyxrwkk8s5tv" path="res://assets/music/Music_Apt_Drums_Med_01.ogg" id="11_nww3j"]
 [ext_resource type="Resource" uid="uid://drev8q4ymquim" path="res://scripts/activities/drinkWater.tres" id="11_xe4so"]
-[ext_resource type="AudioStream" uid="uid://bnw5qdf3la2ui" path="res://assets/music/Music_Apt_Drums_Med_02.ogg" id="12_fjd4m"]
 [ext_resource type="Resource" uid="uid://3evhlgxxx233" path="res://scripts/activities/videoGamesBinge.tres" id="12_qhf62"]
-[ext_resource type="AudioStream" uid="uid://bjswtroxgaacu" path="res://assets/music/Music_Apt_Drums_Med_03.ogg" id="13_16r6b"]
 [ext_resource type="Resource" uid="uid://bqbxfpx8u53vk" path="res://scripts/activities/shower.tres" id="14_k0l5l"]
-[ext_resource type="AudioStream" uid="uid://1002pphkia7h" path="res://assets/music/Music_Apt_Drums_High_01.ogg" id="14_rhir8"]
 [ext_resource type="Resource" uid="uid://c7scafnxciev4" path="res://scripts/activities/doomScroll.tres" id="15_2gylh"]
 [ext_resource type="Resource" uid="uid://dyqp3beglkewy" path="res://scripts/activities/updateCV.tres" id="15_jfw8p"]
 [ext_resource type="Resource" uid="uid://csad4qornjpp8" path="res://scripts/activities/brushTeeth.tres" id="15_u3oc1"]
-[ext_resource type="AudioStream" uid="uid://dxlq6na7si1n3" path="res://assets/music/Music_Apt_Drums_High_02.ogg" id="15_wrnrc"]
-[ext_resource type="AudioStream" uid="uid://cchwfm3hic362" path="res://assets/music/Music_Apt_Drums_High_03.ogg" id="16_gvvb1"]
 [ext_resource type="Resource" uid="uid://csoknpljo1w50" path="res://scripts/activities/applyToJobs.tres" id="17_xe4so"]
 [ext_resource type="Resource" uid="uid://isql6h63ukuf" path="res://scripts/activities/laundry.tres" id="18_pcdei"]
 [ext_resource type="AudioStream" uid="uid://4ahmjfjhe31c" path="res://assets/sfx/sfx_vide_game.wav" id="18_rg4kn"]
@@ -625,8 +613,6 @@ zoom = Vector2(4, 4)
 [node name="Ui" parent="CanvasLayer" instance=ExtResource("3_q00km")]
 size_flags_horizontal = 4
 size_flags_vertical = 4
-music = Array[AudioStream]([ExtResource("5_yxb7c"), ExtResource("6_3n1t4"), ExtResource("7_uqxpw")])
-drums = Array[AudioStream]([ExtResource("8_ugg52"), ExtResource("9_xsgy7"), ExtResource("10_21lnw"), ExtResource("11_nww3j"), ExtResource("12_fjd4m"), ExtResource("13_16r6b"), ExtResource("14_rhir8"), ExtResource("15_wrnrc"), ExtResource("16_gvvb1")])
 sfx = Dictionary[String, AudioStream]({
 "Apply to Jobs": ExtResource("29_ceukf"),
 "Binge Video Games": ExtResource("18_rg4kn"),

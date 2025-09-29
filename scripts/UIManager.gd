@@ -10,8 +10,28 @@ extends Control
 @onready var overlay = $MarginContainer/CutsceneOverlay
 @onready var clock = $MarginContainer/MarginContainer/DateTime
 
-@export var music : Array[AudioStream]
-@export var drums : Array[AudioStream]
+@onready var music : Array[AudioStreamOggVorbis] = [
+	preload("res://assets/music/Music_Apt_Melodics_01.ogg"),
+	preload("res://assets/music/Music_Apt_Melodics_02.ogg"),
+	preload("res://assets/music/Music_Apt_Melodics_03.ogg"),
+]
+@onready var drums: Array[AudioStreamOggVorbis] = [
+	# High
+	preload("res://assets/music/Music_Apt_Drums_High_01.ogg"),
+	preload("res://assets/music/Music_Apt_Drums_High_02.ogg"),
+	preload("res://assets/music/Music_Apt_Drums_High_03.ogg"),
+
+	# Med
+	preload("res://assets/music/Music_Apt_Drums_Med_01.ogg"),
+	preload("res://assets/music/Music_Apt_Drums_Med_02.ogg"),
+	preload("res://assets/music/Music_Apt_Drums_Med_03.ogg"),
+
+	# Low
+	preload("res://assets/music/Music_Apt_Drums_Low_01.ogg"),
+	preload("res://assets/music/Music_Apt_Drums_Low_02.ogg"),
+	preload("res://assets/music/Music_Apt_Drums_Low_03.ogg"),
+]
+
 @export var sfx : Dictionary[String, AudioStream]
 
 var current_melody = randi_range(0, music.size()-1)
