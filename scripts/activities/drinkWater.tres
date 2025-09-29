@@ -10,6 +10,6 @@ effects = {
 "body": 10.0,
 "burnout": -5.0,
 "cognition": 10.0,
-"energy": 0.0
+"energy": 5.0
 }
 metadata/_custom_type_script = "uid://m8pebh44pmau"

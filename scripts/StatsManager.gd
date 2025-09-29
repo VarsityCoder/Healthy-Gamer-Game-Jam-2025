@@ -51,7 +51,7 @@ func _on_stat_timer_timeout():
 		
 	if "Grungy" in statuses:
 		print("Feeling Grungy, lowering stats...")
-		stats["body"] = clamp(stats["body"], 0, 40)
+		stats["body"] = clamp(stats["body"], 0, 60)
 		stats["burnout"] = stats["burnout"] + 1 * TimeManager.time_multiplier
 		stat_change = true
 		

@@ -12,4 +12,5 @@ effects = {
 "cognition": -15.0,
 "energy": -15.0
 }
+statuses_added = Array[String](["Overloaded"])
 metadata/_custom_type_script = "uid://m8pebh44pmau"
