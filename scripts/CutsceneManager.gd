@@ -48,6 +48,10 @@ func start_activity(command: Command) -> void:
 	await get_tree().create_timer(sound_length).timeout  # fake transition
 	print(command.activity_name, " sound effect took ", sound_length)
 	
+	for p in command.prereqs:
+		ActivityManager.prereqs.erase(p)
+	ActivityManager.prereqs[command.activity_name] = 1
+	
 	ui_manager.hide_cutscene_overlay()
 	emit_signal("activity_finished", command)
 	is_running = false

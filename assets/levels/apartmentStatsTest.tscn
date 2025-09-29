@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cuelhgp57kgoa"]
+[gd_scene load_steps=41 format=4 uid="uid://cuelhgp57kgoa"]
 
 [ext_resource type="Texture2D" uid="uid://cle2dlomyga8k" path="res://assets/kenney_rpg-urban-pack/Tilemap/tilemap.png" id="1_5ty3s"]
 [ext_resource type="Texture2D" uid="uid://3krkkr1dfkxd" path="res://assets/art/mapdraft.png" id="1_e8byr"]
@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://c7ve0kt6nmcyk" path="res://assets/sfx/sfx_doing_laundry.wav" id="21_bvuh7"]
 [ext_resource type="AudioStream" uid="uid://rphv7y0uw6dn" path="res://assets/sfx/sfx_meditation.wav" id="22_4chvk"]
 [ext_resource type="AudioStream" uid="uid://ou1nuuggkmht" path="res://assets/sfx/sfx_footsteps_wood.wav" id="23_n6r3s"]
+[ext_resource type="Resource" path="res://scripts/activities/tidyUp.tres" id="23_xsgy7"]
 [ext_resource type="AudioStream" uid="uid://bphh2s5lgory" path="res://assets/sfx/sfx_going_to_bed.wav" id="24_roehw"]
 [ext_resource type="AudioStream" uid="uid://dxvdr1byp0tfe" path="res://assets/sfx/sfx_chips.wav" id="26_vnkj6"]
 [ext_resource type="AudioStream" uid="uid://wbdp0tmxmlho" path="res://assets/sfx/sfx_cleaning.wav" id="27_glgry"]
@@ -635,7 +636,7 @@ sfx = Dictionary[String, AudioStream]({
 
 [node name="yogaMat" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(-25, 40)
-activities = Array[ExtResource("5_3vdx0")]([ExtResource("6_asdao"), ExtResource("7_k0l5l")])
+activities = Array[ExtResource("5_3vdx0")]([ExtResource("6_asdao"), ExtResource("7_k0l5l"), ExtResource("23_xsgy7")])
 
 [node name="door" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(60, 62)

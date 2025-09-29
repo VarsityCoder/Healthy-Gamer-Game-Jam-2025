@@ -13,4 +13,5 @@ effects = {
 "energy": 40.0
 }
 cooldown_hours = 4.0
+special_rule = "not after coffee"
 metadata/_custom_type_script = "uid://m8pebh44pmau"

@@ -15,4 +15,5 @@ effects = {
 statuses_added = Array[String](["Grungy"])
 statuses_removed = Array[String](["Achey"])
 cooldown_hours = 3.0
+prereqs = Array[String](["Tidy Up"])
 metadata/_custom_type_script = "uid://m8pebh44pmau"

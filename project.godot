@@ -23,6 +23,7 @@ CutsceneManager="*res://scripts/CutsceneManager.gd"
 ActivityManager="*res://scripts/ActivityManager.gd"
 TimeManager="*res://scripts/TimeManager.gd"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
+WinStateManager="*res://scripts/WinStateManager.gd"
 
 [display]
 

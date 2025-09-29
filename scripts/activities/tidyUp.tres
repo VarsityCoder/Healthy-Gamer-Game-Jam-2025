@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://cftlb0tofigxl"]
+[gd_resource type="Resource" script_class="Command" load_steps=2 format=3 uid="uid://8o3sh5kwv8eh"]
 
 [ext_resource type="Script" uid="uid://m8pebh44pmau" path="res://scripts/Command.gd" id="1_xhq07"]
 
@@ -13,4 +13,5 @@ effects = {
 "energy": -15.0
 }
 cooldown_hours = 18.0
+prereqs = Array[String](["Yoga", "Meditate"])
 metadata/_custom_type_script = "uid://m8pebh44pmau"

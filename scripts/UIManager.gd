@@ -93,6 +93,7 @@ func _on_activity_started(command: Command) -> void:
 	if command.activity_name in sfx:
 		SoundManager.play_ambient_sound(sfx[command.activity_name]) #.set_sound_volume(0.7)
 		
+	_clear_actions()
 	show_cutscene_overlay()
 
 func _on_activity_finished(command: Command) -> void:
@@ -100,7 +101,6 @@ func _on_activity_finished(command: Command) -> void:
 	# HIDE ANIMATIONS
 	if command.activity_name in sfx:
 		SoundManager.stop_ambient_sound(sfx[command.activity_name])
-	_clear_actions()
 	hide_cutscene_overlay()
 
 func show_cutscene_overlay():
