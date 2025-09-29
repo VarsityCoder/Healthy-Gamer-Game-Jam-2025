@@ -14,6 +14,9 @@ func start_activity(command: Command) -> void:
 	emit_signal("activity_started", command)
 	ui_manager.show_cutscene_overlay()
 	
+	# INSERT CUTSCENES HERE
+	# INSERT MINIGAMES HERE
+	
 	# Advancing game time
 	var game_seconds = command.duration_hours * Globals.game_hour
 	if command.activity_name == "Sleep":

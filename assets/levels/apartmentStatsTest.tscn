@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://bjswtroxgaacu" path="res://assets/music/Music_Apt_Drums_Med_03.ogg" id="13_16r6b"]
 [ext_resource type="Resource" uid="uid://bqbxfpx8u53vk" path="res://scripts/activities/shower.tres" id="14_k0l5l"]
 [ext_resource type="AudioStream" uid="uid://1002pphkia7h" path="res://assets/music/Music_Apt_Drums_High_01.ogg" id="14_rhir8"]
+[ext_resource type="Resource" uid="uid://c7scafnxciev4" path="res://scripts/activities/doomScroll.tres" id="15_2gylh"]
 [ext_resource type="Resource" uid="uid://dyqp3beglkewy" path="res://scripts/activities/updateCV.tres" id="15_jfw8p"]
 [ext_resource type="Resource" uid="uid://csad4qornjpp8" path="res://scripts/activities/brushTeeth.tres" id="15_u3oc1"]
 [ext_resource type="AudioStream" uid="uid://dxlq6na7si1n3" path="res://assets/music/Music_Apt_Drums_High_02.ogg" id="15_wrnrc"]
@@ -663,7 +664,7 @@ activities = Array[ExtResource("5_3vdx0")]([ExtResource("11_xe4so"), ExtResource
 
 [node name="bed" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(203, -57)
-activities = Array[ExtResource("5_3vdx0")]([ExtResource("7_asdao")])
+activities = Array[ExtResource("5_3vdx0")]([ExtResource("7_asdao"), ExtResource("15_2gylh")])
 
 [node name="PC" parent="." instance=ExtResource("4_k557q")]
 position = Vector2(315, -42)
