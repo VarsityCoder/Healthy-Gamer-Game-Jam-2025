@@ -11,13 +11,14 @@ var tbd_emails = [
 	{"delivered": 2, "message": "Hey, hows it going?"}
 ]
 
+# Use the emails array with the dialogue box
 var emails = []
 
 var first_interviews = [
-	# Interview 1 with Company 1 
-	{"req_cv": 2, "role_close_date": 5},
-	# Interview 1 with Company 2
-	{"req_cv": 4, "role_close_date": 9},
+	# Interview 1 with Stability Bank from Narrative Doc
+	{"req_cv": 2, "role_close_date": 5, "message": "Stability Bank: Introductory Call"},
+	# Interview 1 with Bleeding Bat from Narrative Doc
+	{"req_cv": 4, "role_close_date": 9, "message": "Bleeding Bat: Introductory Call"},
 ]
 
 var second_interviews = [
@@ -34,19 +35,33 @@ func _process(delta: float) -> void:
 	# REMOVE LATER FOR TESTING
 	if Input.is_action_pressed("testCV"):
 		cv_updates += 1
+		print("Updated CV +1 using debug: ", cv_updates)
 		
 	if Input.is_action_pressed("testInterview"):
 		practice_interviews += 1
+		print("Practiced Interview +1 using debug: ", practice_interviews)
 
 func check_job_stats():
 	for i in range(first_interviews.size()):
 		if TimeManager.current_day < first_interviews[i]["role_close_date"] and cv_updates > first_interviews[i]["req_cv"]:
-			# Secured first email invite
-			# TESTING Please change this later
-			print("Adding an email to be delivered...")
-			add_email(TimeManager.current_day + 2, "Company "+str(i)+": Introductory Call")
-			first_interviews.remove_at(i)
-			return
+			send_success_email(i, first_interviews[i]["message"])
+			return "passed ATS"
+	print("player failed ATS...")
+	return "failed ATS"
+	
+func send_success_email(interview_index, message):
+	print("Adding an email to be delivered...")
+	add_email(TimeManager.current_day + 2, message)
+	first_interviews.remove_at(interview_index)
+
+func send_default_email():
+	var default_emails = [
+		"Thank you for applying! We will get back to you soon.",
+		"We appreciate you choosing us! If there is a match...",
+		"Hi [applicant #" + str(randi_range(426,1234)) + "], Unfortunately we have decided to..."
+	]
+	print("sending default rejection")
+	add_email(TimeManager.current_day + randi_range(0, 2), default_emails.pick_random())
 			
 func add_email(delivery_day: int, message):
 	print("EMAILS: Scheduling an email for day ", delivery_day, ", ", message)
