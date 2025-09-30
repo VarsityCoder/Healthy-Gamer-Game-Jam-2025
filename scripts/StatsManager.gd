@@ -83,6 +83,14 @@ func set_stat(statName: String, value: float) -> void:
 	if stats["cognition"] < 25:
 		add_status("Overloaded")
 		
+	# Hyperfocus Conditions
+	if stats["cognition"] > 50 and stats["body"] > 70:
+		if "Hyperfocus" not in statuses:
+			add_status("Hyperfocus")
+	else:
+		if "Hyperfocus" in statuses:
+			remove_status("Hyperfocus")
+		
 	emit_signal("stats_changed", stats)
 
 func add_status(status: String) -> void:
@@ -94,6 +102,9 @@ func add_status(status: String) -> void:
 		if status == "Hungry":
 			stats["burnout"] = stats["burnout"] + 20
 			
+		if status == "Hyperfocus":
+			TimeManager.set_time_dialation(0.5)
+			
 	emit_signal("player_status_changed", statuses)
 
 func remove_status(status: String) -> void:
@@ -103,5 +114,7 @@ func remove_status(status: String) -> void:
 	# Special Remove Conditions
 	if status == "Hungry":
 		stats["burnout"] = stats["burnout"] - 20
+	if status == "Hyperfocus":
+			TimeManager.reset_time_dialation()
 		
 	emit_signal("player_status_changed", statuses)
