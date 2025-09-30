@@ -11,6 +11,8 @@ class_name Command
 
 var last_used_time: float = -99999.0
 
+var always_available = ["Binge Video Games", "Sleep", "Eat Snack", "Drink Water"]
+
 func is_available() -> bool:
 	# Check cooldown
 	if cooldown_hours > 0 and TimeManager.game_time - last_used_time < cooldown_hours * Globals.game_hour:
@@ -20,7 +22,7 @@ func is_available() -> bool:
 		#if key != "burnout" and (StatsManager.stats[key] + effects[key]) <= 0:
 			#return false
 	
-	if activity_name != "Binge Video Games" and activity_name != "Sleep" and (StatsManager.stats["energy"] + effects["energy"]) <= 0:
+	if activity_name not in always_available and (StatsManager.stats["energy"] + effects["energy"]) <= 0:
 			return false
 	
 	# Example special rule enforcement

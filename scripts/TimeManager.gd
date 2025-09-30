@@ -1,6 +1,7 @@
 extends Node
 
 signal time_updated(game_time: float)
+signal day_updated(days_left: int)
 
 var game_time: float = 0
 var time_multiplier: float = 1.0
@@ -9,15 +10,19 @@ var days_left = int((Globals.total_time - ceil(game_time)) / float(Globals.secon
 var hours_left = (int(Globals.total_time - floor(game_time)) % Globals.seconds_per_day) / (Globals.seconds_per_day / 24.0)
 var mins_left = int(hours_left * 60) % 60
 
+var current_day = int(float(Globals.total_time) / Globals.seconds_per_day) - days_left
 var clock_time = 24 - hours_left
 var clock_time_mins = 60 - mins_left
 var clock_time_formatted = "%2d:%02d" % [clock_time, clock_time_mins]
 
 func _process(delta: float) -> void:
+	var prev_day = current_day
 	game_time += delta * time_multiplier
 	days_left = int((Globals.total_time - ceil(game_time)) / float(Globals.seconds_per_day))
 	hours_left = (int(floor(Globals.total_time - floor(game_time))) % Globals.seconds_per_day) / (Globals.seconds_per_day / 24.0)
 	mins_left = int(hours_left * 60) % 60
+	
+	current_day = int(float(Globals.total_time) / Globals.seconds_per_day) - days_left
 	clock_time = 24.0 - hours_left
 	clock_time_mins = 60 - mins_left
 	
@@ -29,6 +34,12 @@ func _process(delta: float) -> void:
 		clock_time_formatted += " AM"
 		
 	emit_signal("time_updated", game_time)
+	
+	#if int(clock_time * 100) % 100 == 0 and current_day != prev_day:
+	if current_day != prev_day:
+		#print(clock_time)
+		emit_signal("day_updated", current_day)
+		print("Day changed to ", current_day)
 	
 	# REMOVE LATER FOR TESTING
 	if Input.is_action_pressed("testTimeUp"):
