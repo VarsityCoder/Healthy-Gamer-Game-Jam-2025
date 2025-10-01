@@ -77,3 +77,11 @@ func availableActions(actions):
 	
 func clearActions():
 	ui_manager._clear_actions()
+
+func reset_game():
+	past_actions = []
+	current_time_since_all = {}
+	prereqs = {
+		"Eat Meal": 1,
+		"Yoga":1
+	}

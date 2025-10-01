@@ -90,7 +90,10 @@ func change_music():
 		
 func _on_day_updated(current_day):
 	if current_day > 1:
-		change_music()
+		if current_day != Globals.total_days:
+			change_music()
+		else:
+			SoundManager.stop_all_sounds(0.5)
 
 func _on_activity_started(command: Command) -> void:
 	print("Started:", command.activity_name)

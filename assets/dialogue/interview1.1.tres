@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="DialogueItem" load_steps=7 format=3 uid="uid://clr7tae6ruxx"]
+
+[ext_resource type="Texture2D" uid="uid://cngfg8562bplh" path="res://assets/art/interview.png" id="1_b03fa"]
+[ext_resource type="Script" uid="uid://dpksewep6mhyh" path="res://scripts/dialougeChoice.gd" id="2_w7e8w"]
+[ext_resource type="Texture2D" uid="uid://dahne7wtmfugq" path="res://assets/art/interview_mad.png" id="3_b03fa"]
+[ext_resource type="Script" uid="uid://b26o3px8j0q2q" path="res://scripts/dialougeItem.gd" id="4_xon21"]
+
+[sub_resource type="Resource" id="Resource_b03fa"]
+script = ExtResource("2_w7e8w")
+text = "*Shrugs* Whatever man."
+is_quit = true
+ending = "bad"
+
+[sub_resource type="Resource" id="Resource_w7e8w"]
+script = ExtResource("2_w7e8w")
+
+[resource]
+script = ExtResource("4_xon21")
+choices = Array[ExtResource("2_w7e8w")]([SubResource("Resource_b03fa"), SubResource("Resource_w7e8w")])
+expression = ExtResource("3_b03fa")
+character = ExtResource("1_b03fa")
+text = "Andrew: You little brat! The value of loans extend far beyond pedestrian knowledge! If you have no interest then I say this interview is concluded. Good day!"
+metadata/_custom_type_script = "uid://b26o3px8j0q2q"

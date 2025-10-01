@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://bexwg2fud5k6e"]
+
+[ext_resource type="Script" uid="uid://c47ahyi6ovrfy" path="res://assets/levels/menu.gd" id="1_6o6ww"]
+[ext_resource type="AudioStream" uid="uid://64bto2f2wfj7" path="res://assets/music/Menu.ogg" id="3_6o6ww"]
+[ext_resource type="Texture2D" uid="uid://cwhdjvqhnwky2" path="res://assets/art/menu.png" id="6_7c1x5"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_6o6ww")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 42
+text = "The Hunt"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 10
+
+[node name="ActionButtonsVBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer2/VBoxContainer/ActionButtonsVBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "A game by Ash, Nick Baronowsky, Ed Buller, Skip Ridley, Thomas Abadines, and Kemba"
+fit_content = true
+
+[node name="Container" type="AspectRatioContainer" parent="CanvasLayer/Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+ratio = 1.7778
+
+[node name="Body" type="TextureRect" parent="CanvasLayer/Control/Container"]
+z_index = -2
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_7c1x5")
+expand_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6o6ww")
+volume_db = -0.09
+autoplay = true
+parameters/looping = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/VBoxContainer2/VBoxContainer/ActionButtonsVBoxContainer/Button" to="." method="_on_button_pressed"]

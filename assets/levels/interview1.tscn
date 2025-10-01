@@ -1,13 +1,111 @@
-[gd_scene load_steps=3 format=3 uid="uid://1wawjiw82pk5"]
+[gd_scene load_steps=26 format=3 uid="uid://1wawjiw82pk5"]
 
+[ext_resource type="Script" uid="uid://bjj38vuddtecx" path="res://assets/levels/interview_1.gd" id="1_20d6y"]
 [ext_resource type="Texture2D" uid="uid://cngfg8562bplh" path="res://assets/art/interview.png" id="2_crjqk"]
 [ext_resource type="Script" uid="uid://0e6lpc1spbml" path="res://scripts/testButton.gd" id="2_ji25f"]
+[ext_resource type="Resource" uid="uid://b16qyw0ceefxd" path="res://assets/dialogue/interview1.tres" id="3_6fvbi"]
+[ext_resource type="Script" uid="uid://bl78waygrp5pn" path="res://scripts/dialouge.gd" id="3_20d6y"]
+[ext_resource type="Script" uid="uid://b26o3px8j0q2q" path="res://scripts/dialougeItem.gd" id="4_2fnbu"]
+[ext_resource type="Resource" uid="uid://clr7tae6ruxx" path="res://assets/dialogue/interview1.1.tres" id="4_acvw1"]
+[ext_resource type="Script" uid="uid://dpksewep6mhyh" path="res://scripts/dialougeChoice.gd" id="6_vj8n6"]
+[ext_resource type="Texture2D" uid="uid://dahne7wtmfugq" path="res://assets/art/interview_mad.png" id="8_vj8n6"]
+[ext_resource type="Texture2D" uid="uid://bg0f5tq6vfw36" path="res://assets/art/interview_happy.png" id="9_81lct"]
+[ext_resource type="AudioStream" uid="uid://ye6yjsgqotj6" path="res://assets/music/Interview 01.ogg" id="11_81lct"]
+
+[sub_resource type="Resource" id="Resource_2fnbu"]
+script = ExtResource("6_vj8n6")
+text = "Yawn..."
+target_line_idx = 3
+ending = null
+
+[sub_resource type="Resource" id="Resource_oaqry"]
+script = ExtResource("6_vj8n6")
+text = "You're evil!"
+target_line_idx = 3
+
+[sub_resource type="Resource" id="Resource_vj8n6"]
+script = ExtResource("6_vj8n6")
+text = "Have you heard about the new loans coming out of Thailand? It's sort of like crowdfunding. Maybe it's time for you to innovate."
+target_line_idx = 4
+
+[sub_resource type="Resource" id="Resource_81lct"]
+script = ExtResource("6_vj8n6")
+text = "I love loans, trust me on that one. I wake up and I think: LOANS! LOAN PRODUCTS! DISBURSEMENT OF LOANS!"
+target_line_idx = 5
+ending = null
+
+[sub_resource type="Resource" id="Resource_dutei"]
+script = ExtResource("4_2fnbu")
+choices = Array[ExtResource("6_vj8n6")]([SubResource("Resource_2fnbu"), SubResource("Resource_oaqry"), SubResource("Resource_vj8n6"), SubResource("Resource_81lct")])
+expression = ExtResource("2_crjqk")
+character = ExtResource("2_crjqk")
+text = "Andrew: What's really core to us here at Stability Bank is a vision of interest. You see, when we create combinations of loan derivatives, and sell them at minimum premium, we essentially extend our presence into the lives of those who take on those loans. Our goal is to directly assist the entire country with our loans, and to receive interest and repayments from those people in turn. We need you on the same page."
+metadata/_custom_type_script = "uid://b26o3px8j0q2q"
+
+[sub_resource type="Resource" id="Resource_58r7w"]
+script = ExtResource("6_vj8n6")
+text = "Okay. Thank you for your time."
+is_quit = true
+ending = "bad"
+
+[sub_resource type="Resource" id="Resource_i0bj8"]
+script = ExtResource("4_2fnbu")
+choices = Array[ExtResource("6_vj8n6")]([SubResource("Resource_58r7w")])
+expression = ExtResource("8_vj8n6")
+character = ExtResource("2_crjqk")
+text = "Andrew: Well that's not the right attitude for the job I'm afraid. I need someone who lives and breathes loans."
+
+[sub_resource type="Resource" id="Resource_0jwpf"]
+script = ExtResource("6_vj8n6")
+text = "I'll be honest. I don't care about loans. I just need a job."
+target_line_idx = 3
+ending = null
+
+[sub_resource type="Resource" id="Resource_bdj5o"]
+script = ExtResource("6_vj8n6")
+text = "My mistake. I'm still learning about loans but I am passionate about fitting into your company. I'll do whatever it takes."
+target_line_idx = 5
+ending = null
+
+[sub_resource type="Resource" id="Resource_3mf7t"]
+script = ExtResource("4_2fnbu")
+choices = Array[ExtResource("6_vj8n6")]([SubResource("Resource_0jwpf"), SubResource("Resource_bdj5o")])
+expression = ExtResource("9_81lct")
+character = ExtResource("9_81lct")
+text = "Andrew: Yes, I have heard of crowdfunding, and it isn't actually a loan but rather a promise to provide a service once funding conditions are met. Are you sure you know anything at all about loans?"
+
+[sub_resource type="Resource" id="Resource_s0gdf"]
+script = ExtResource("6_vj8n6")
+text = "That's great!"
+target_line_idx = 6
+
+[sub_resource type="Resource" id="Resource_rjqjv"]
+script = ExtResource("4_2fnbu")
+choices = Array[ExtResource("6_vj8n6")]([SubResource("Resource_s0gdf")])
+expression = ExtResource("9_81lct")
+character = ExtResource("2_crjqk")
+text = "Andrew: That's the right attitude. There's still a lot for you to learn but that's what we do. We share loan knowledge with the world. I think you'll fit right in!"
+
+[sub_resource type="Resource" id="Resource_yyjgr"]
+script = ExtResource("6_vj8n6")
+text = "Thank you!"
+is_quit = true
+ending = "good"
+
+[sub_resource type="Resource" id="Resource_8kw3o"]
+script = ExtResource("4_2fnbu")
+choices = Array[ExtResource("6_vj8n6")]([SubResource("Resource_yyjgr")])
+expression = ExtResource("2_crjqk")
+character = ExtResource("2_crjqk")
+text = "Andrew: Alright, I think that’s all for now. We have some other candidates to interview, but we will let you know soon"
 
 [node name="interview" type="Node2D"]
+script = ExtResource("1_20d6y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,22 +113,71 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_crjqk")
-expand_mode = 5
-stretch_mode = 3
+script = ExtResource("3_20d6y")
+dialogue_items = Array[ExtResource("4_2fnbu")]([ExtResource("3_6fvbi"), ExtResource("4_acvw1"), SubResource("Resource_dutei"), SubResource("Resource_i0bj8"), SubResource("Resource_3mf7t"), SubResource("Resource_rjqjv"), SubResource("Resource_8kw3o")])
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -77.0
-offset_top = -31.0
-offset_right = 77.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer"]
+visible = false
+layout_mode = 2
 text = "Back to Apartment"
 script = ExtResource("2_ji25f")
 
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="ActionButtonsVBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Hi
+"
+fit_content = true
+
+[node name="Container" type="AspectRatioContainer" parent="CanvasLayer/Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+ratio = 1.7778
+
+[node name="Body" type="TextureRect" parent="CanvasLayer/Control/Container"]
+z_index = -2
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_crjqk")
+expand_mode = 1
+
+[node name="Expression" type="TextureRect" parent="CanvasLayer/Control/Container"]
+z_index = -2
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_crjqk")
+expand_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_81lct")
+volume_db = -0.09
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/Button" to="CanvasLayer/Control/MarginContainer/Button" method="_on_pressed"]

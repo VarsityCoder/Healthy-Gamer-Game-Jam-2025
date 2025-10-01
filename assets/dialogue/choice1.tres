@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueChoice" load_steps=2 format=3 uid="uid://cr0e7ciho30th"]
+
+[ext_resource type="Script" uid="uid://dpksewep6mhyh" path="res://scripts/dialougeChoice.gd" id="1_dhw7y"]
+
+[resource]
+script = ExtResource("1_dhw7y")
+text = "A boring old bank? "
+target_line_idx = 1
+metadata/_custom_type_script = "uid://dpksewep6mhyh"

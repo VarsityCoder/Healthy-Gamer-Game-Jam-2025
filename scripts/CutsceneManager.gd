@@ -16,6 +16,11 @@ var interview_scenes = [
 	null,
 ]
 
+var game_over_scene = preload("res://assets/levels/game_over.tscn")
+var win_scene = preload("res://assets/levels/win.tscn")
+var menu_scene = preload("res://assets/levels/menu.tscn")
+var prologue_scene = preload("res://assets/levels/prologue.tscn")
+
 @onready var ui_manager = get_tree().get_root().get_node("Apartment/CanvasLayer/Ui")
 
 var is_running: bool = false
@@ -69,8 +74,8 @@ func start_activity(command: Command) -> void:
 	if command.activity_name == "Check Email":
 		#if TimeManager.clock_time > 9.0:
 			# DIALOGUE BOX
-		print("EMAILS: ", WinStateManager.emails)
-		for i in WinStateManager.emails:
+		print("EMAILS: ", WinStateManager.get_emails())
+		for i in WinStateManager.get_emails():
 			print(i)
 	
 	var sound_length = 2
@@ -90,7 +95,8 @@ func start_activity(command: Command) -> void:
 		Globals.in_apartment = false
 		go_to_scene(scenes[command.activity_name])
 	else:
-		ui_manager.hide_cutscene_overlay()
+		if ui_manager:
+			ui_manager.hide_cutscene_overlay()
 		emit_signal("activity_finished", command)
 		is_running = false
 		Globals.in_apartment = true
@@ -113,6 +119,23 @@ func go_to_apt():
 		current_command = null
 		
 func start_interview():
+	SoundManager.stop_all_sounds(0.5)
 	var scene = interview_scenes[WinStateManager.current_interview]
 	if scene != null:
 		get_tree().change_scene_to_packed(scene)
+		
+func go_to_win_scene():
+	SoundManager.stop_all_sounds(0.5)
+	get_tree().change_scene_to_packed(win_scene)
+	
+func go_to_game_over_scene():
+	SoundManager.stop_all_sounds(0.0)
+	get_tree().change_scene_to_packed(game_over_scene)
+	
+func go_to_menu():
+	SoundManager.stop_all_sounds(0.5)
+	get_tree().change_scene_to_packed(menu_scene)
+
+func start_new_game():
+	SoundManager.stop_all_sounds(0.5)
+	get_tree().change_scene_to_packed(prologue_scene)

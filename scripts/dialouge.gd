@@ -5,34 +5,44 @@ extends Control
 @export var dialogue_items: Array[DialogueItem] = []:
 	set = set_dialogue_items
 
-@onready var rich_text_label: RichTextLabel = %RichTextLabel
-@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
-@onready var body: TextureRect = %Body
-@onready var expression: TextureRect = %Expression
-@onready var action_buttons_v_box_container: VBoxContainer = %ActionButtonsVBoxContainer
+@onready var rich_text_label: RichTextLabel = $MarginContainer/VBoxContainer/RichTextLabel
+#@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+@onready var body: TextureRect = $Container/Body
+@onready var expression: TextureRect = $Container/Expression
+@onready var action_buttons_v_box_container: VBoxContainer = $MarginContainer/VBoxContainer/ActionButtonsVBoxContainer
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	show_text(0)
+	
 
+var current_item = null
 
 func show_text(current_item_index: int) -> void:
-	var current_item := dialogue_items[current_item_index]
+	var buttons = action_buttons_v_box_container.get_children()
+	if buttons.size() > 0:
+		for button in buttons:
+			button.queue_free()
+
+	current_item = dialogue_items[current_item_index]
 	rich_text_label.visible_ratio = 0.0
 	rich_text_label.text = current_item.text
 	expression.texture = current_item.expression
 	body.texture = current_item.character
-	create_buttons(current_item.choices)
+	
 	var tween := create_tween()
-	var text_appearing_duration := (current_item["text"] as String).length() / 30.0
+	var text_appearing_duration := (current_item["text"] as String).length() / 50.0
 	tween.tween_property(rich_text_label, "visible_ratio", 1.0, text_appearing_duration)
-	var sound_max_offset := audio_stream_player.stream.get_length() - text_appearing_duration
-	var sound_start_position := randf() * sound_max_offset
-	audio_stream_player.play(sound_start_position)
-	tween.finished.connect(audio_stream_player.stop)
+	#var sound_max_offset := audio_stream_player.stream.get_length() - text_appearing_duration
+	#var sound_start_position := randf() * sound_max_offset
+	#audio_stream_player.play(sound_start_position)
+	#tween.finished.connect(audio_stream_player.stop)
+	tween.finished.connect(_on_tween_end)
 	slide_in()
 
+func _on_tween_end():
+	create_buttons(current_item.choices)
 
 func create_buttons(buttons_data: Array[DialogueChoice]) -> void:
 	for button in action_buttons_v_box_container.get_children():
@@ -42,10 +52,15 @@ func create_buttons(buttons_data: Array[DialogueChoice]) -> void:
 		button.size_flags_horizontal = Control.SIZE_SHRINK_END
 		action_buttons_v_box_container.add_child(button)
 		button.text = choice.text
+		var ending = choice.ending
 		if choice.is_quit:
-			button.pressed.connect(get_tree().quit)
+			button.pressed.connect(_finish_interview.bind(ending))
 		else:
 			var target_line_id := choice.target_line_idx
+			#print("This btn goes to ", target_line_id)
+			#button.connect("mouse_entered", Callable(func ():
+				#print("Mouse entered button!")
+			#))
 			button.pressed.connect(show_text.bind(target_line_id))
 
 func slide_in() -> void:
@@ -67,3 +82,8 @@ func set_dialogue_items(new_dialog_items: Array[DialogueItem]) -> void:
 			new_dialog_items[index] = DialogueItem.new()
 	dialogue_items = new_dialog_items
 	update_configuration_warnings()
+
+func _finish_interview(outcome: String):
+	print("Finishing interview, outcome:", outcome)
+	WinStateManager.end_interview(outcome)
+	CutsceneManager.go_to_apt()

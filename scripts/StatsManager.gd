@@ -122,3 +122,12 @@ func remove_status(status: String) -> void:
 			TimeManager.reset_time_dialation()
 		
 	emit_signal("player_status_changed", statuses)
+
+func reset_game():
+	stats = {
+		"energy": 100,
+		"burnout": 0,
+		"cognition": 100,
+		"body": 100
+	}
+	statuses = []

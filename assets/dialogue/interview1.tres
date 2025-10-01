@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="DialogueItem" load_steps=8 format=3 uid="uid://b16qyw0ceefxd"]
+
+[ext_resource type="Texture2D" uid="uid://cngfg8562bplh" path="res://assets/art/interview.png" id="1_opqt0"]
+[ext_resource type="Script" uid="uid://dpksewep6mhyh" path="res://scripts/dialougeChoice.gd" id="2_x8eoe"]
+[ext_resource type="Resource" uid="uid://cr0e7ciho30th" path="res://assets/dialogue/choice1.tres" id="3_x8eoe"]
+[ext_resource type="Script" uid="uid://b26o3px8j0q2q" path="res://scripts/dialougeItem.gd" id="4_n47t2"]
+
+[sub_resource type="Resource" id="Resource_x8eoe"]
+script = ExtResource("2_x8eoe")
+text = "Stability Bank is a family company seeking opportunities to provide loan services."
+target_line_idx = 2
+ending = null
+
+[sub_resource type="Resource" id="Resource_h6bji"]
+script = ExtResource("2_x8eoe")
+text = "I'm not sure"
+target_line_idx = 2
+ending = null
+
+[sub_resource type="Resource" id="Resource_n47t2"]
+script = ExtResource("2_x8eoe")
+text = "Would be great if you could tell me!"
+target_line_idx = 2
+ending = null
+
+[resource]
+script = ExtResource("4_n47t2")
+choices = Array[ExtResource("2_x8eoe")]([SubResource("Resource_x8eoe"), SubResource("Resource_h6bji"), SubResource("Resource_n47t2"), ExtResource("3_x8eoe")])
+expression = ExtResource("1_opqt0")
+character = ExtResource("1_opqt0")
+text = "Andrew: Nice to finally meet you, My name is Andrew Grebfield from Stability Bank, and member of the Grebfield family. Firstly, I want to ask what you have learned so far about Stability Bank?"
+metadata/_custom_type_script = "uid://b26o3px8j0q2q"

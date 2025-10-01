@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="IsometricLifeGame"
-run/main_scene="uid://dvfm1gpetb4jm"
+config/name="The Hunt"
+run/main_scene="uid://bexwg2fud5k6e"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,13 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfmmv3me1q8ss"]
+[gd_scene load_steps=17 format=3 uid="uid://dfmmv3me1q8ss"]
 
+[ext_resource type="Script" uid="uid://bjj38vuddtecx" path="res://assets/levels/interview_1.gd" id="1_b8k8e"]
 [ext_resource type="Texture2D" uid="uid://dwcilyn10bjxf" path="res://assets/art/win.png" id="1_j6gme"]
+[ext_resource type="Script" uid="uid://d1j1o6ngu0nn" path="res://scripts/cutscene_dialogue.gd" id="2_1inki"]
 [ext_resource type="Script" uid="uid://0e6lpc1spbml" path="res://scripts/testButton.gd" id="2_fnd61"]
+[ext_resource type="Script" uid="uid://b26o3px8j0q2q" path="res://scripts/dialougeItem.gd" id="3_6ip5i"]
+[ext_resource type="Texture2D" uid="uid://cwhdjvqhnwky2" path="res://assets/art/menu.png" id="6_xhfhk"]
+[ext_resource type="Script" uid="uid://dpksewep6mhyh" path="res://scripts/dialougeChoice.gd" id="7_uo4ey"]
+[ext_resource type="Texture2D" uid="uid://cngfg8562bplh" path="res://assets/art/interview.png" id="7_xhfhk"]
+[ext_resource type="AudioStream" uid="uid://dpxic0ugr0r5s" path="res://assets/music/Game Win.ogg" id="8_rqatt"]
 
-[node name="interview" type="Node2D"]
+[sub_resource type="Resource" id="Resource_b8k8e"]
+script = ExtResource("7_uo4ey")
+text = "*Pick up the phone and call Morgan...*"
+target_line_idx = 1
+
+[sub_resource type="Resource" id="Resource_3llvn"]
+script = ExtResource("3_6ip5i")
+choices = Array[ExtResource("7_uo4ey")]([SubResource("Resource_b8k8e")])
+expression = ExtResource("1_j6gme")
+character = ExtResource("1_j6gme")
+text = "See that wasn't so hard, was it? What was all the struggle about? All you had to do was put in a few hours of effort every day, overcome your crippling self doubt, believe strongly that there are opportunities out there despite overwhelming competition, and that even in your depressed and anxious state of mind you could convince someone to commit to selecting you from the crowd and giving you money every month."
+
+[sub_resource type="Resource" id="Resource_rqatt"]
+script = ExtResource("7_uo4ey")
+text = "Back to Menu"
+is_quit = true
+
+[sub_resource type="Resource" id="Resource_6ip5i"]
+script = ExtResource("3_6ip5i")
+choices = Array[ExtResource("7_uo4ey")]([SubResource("Resource_rqatt")])
+expression = ExtResource("6_xhfhk")
+character = ExtResource("6_xhfhk")
+text = "Thanks for playing!!
+
+From Ash, Nick Baronowsky, Ed Buller, Skip Ridley, Thomas Abadines, and Kemba!"
+metadata/_custom_type_script = "uid://b26o3px8j0q2q"
+
+[sub_resource type="Curve" id="Curve_xhfhk"]
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_rqatt"]
+curve_x = SubResource("Curve_xhfhk")
+
+[sub_resource type="Gradient" id="Gradient_xhfhk"]
+offsets = PackedFloat32Array(0, 0.67928284, 1)
+colors = PackedColorArray(1, 0.9843137, 0.654902, 1, 1, 0.9949691, 0.88932115, 1, 1, 1, 1, 1)
+
+[node name="win" type="Node2D"]
+script = ExtResource("1_b8k8e")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,22 +60,86 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_j6gme")
-expand_mode = 5
-stretch_mode = 3
+script = ExtResource("2_1inki")
+dialogue_items = Array[ExtResource("3_6ip5i")]([SubResource("Resource_3llvn"), SubResource("Resource_6ip5i")])
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -46.5
-offset_top = -31.0
-offset_right = 46.5
 grow_horizontal = 2
-grow_vertical = 0
-text = "Play Again!"
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer"]
+visible = false
+layout_mode = 2
+text = "Back to Apartment"
 script = ExtResource("2_fnd61")
 
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="ActionButtonsVBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Hi
+"
+fit_content = true
+
+[node name="Container" type="AspectRatioContainer" parent="CanvasLayer/Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+ratio = 1.7778
+
+[node name="Body" type="TextureRect" parent="CanvasLayer/Control/Container"]
+z_index = -2
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("CurveXYZTexture_rqatt")
+expand_mode = 1
+
+[node name="Expression" type="TextureRect" parent="CanvasLayer/Control/Container"]
+z_index = -2
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("7_xhfhk")
+expand_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_rqatt")
+volume_db = -0.09
+autoplay = true
+parameters/looping = false
+
+[node name="fireworks" type="CPUParticles2D" parent="."]
+amount = 50
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2000.0
+initial_velocity_max = 2000.0
+scale_amount_min = 0.0
+scale_amount_max = 9.97
+color_ramp = SubResource("Gradient_xhfhk")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/Button" to="CanvasLayer/Control/MarginContainer/Button" method="_on_pressed"]

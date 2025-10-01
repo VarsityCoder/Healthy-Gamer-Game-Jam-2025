@@ -57,4 +57,5 @@ func reset_time_dialation():
 	time_multiplier = 1.0
 	print("Time dialation reset.")
 
-# REMOVE LATER FOR TESTING
+func reset_game():
+	game_time = 0
