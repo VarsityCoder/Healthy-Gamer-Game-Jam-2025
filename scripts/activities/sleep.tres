@@ -10,7 +10,8 @@ effects = {
 "body": 10.0,
 "burnout": -20.0,
 "cognition": 20.0,
-"energy": 40.0
+"energy": 80.0
 }
 cooldown_hours = 4.0
+special_rule = "not after coffee"
 metadata/_custom_type_script = "uid://m8pebh44pmau"

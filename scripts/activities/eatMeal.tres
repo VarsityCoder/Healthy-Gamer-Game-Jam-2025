@@ -14,4 +14,5 @@ effects = {
 }
 statuses_removed = Array[String](["Hungry"])
 cooldown_hours = 5.0
+prereqs = Array[String](["Do Dishes"])
 metadata/_custom_type_script = "uid://m8pebh44pmau"

@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvfm1gpetb4jm"]
+
+[ext_resource type="Script" uid="uid://dp6g3wjkqetl2" path="res://assets/levels/prologue.gd" id="1_gixgy"]
+[ext_resource type="VideoStream" uid="uid://1s1p4cxtrd6h" path="res://assets/art/prologue.ogv" id="1_lq1do"]
+
+[node name="Prologue" type="Node2D"]
+script = ExtResource("1_gixgy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer/Control/AspectRatioContainer"]
+layout_mode = 2
+stream = ExtResource("1_lq1do")
+autoplay = true
+expand = true
+
+[connection signal="finished" from="CanvasLayer/Control/AspectRatioContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

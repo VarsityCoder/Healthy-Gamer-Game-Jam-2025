@@ -13,3 +13,15 @@ func stop(resource: AudioStream) -> void:
 		if player.stream == resource:
 			fade_volume(player, player.volume_db, -80, 0.5)
 			player.call_deferred("stop")
+
+func is_playing(resource: AudioStream) -> bool:
+	if resource != null:
+		return get_busy_player_with_resource(resource) != null
+	else:
+		return busy_players.size() > 0
+		
+func get_currently_playing() -> Array[AudioStream]:
+	var tracks: Array[AudioStream] = []
+	for player in busy_players:
+		tracks.append(player.stream)
+	return tracks

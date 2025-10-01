@@ -5,6 +5,8 @@ signal player_status_changed(statuses: Array[String])
 
 var low_pass = AudioServer.get_bus_effect(1,0)
 
+var stat_timer = null
+
 var stats = {
 	"energy": 100,
 	"burnout": 0,
@@ -16,15 +18,17 @@ var statuses: Array[String] = []   # ["Hungry", "Grungy"]
 
 func _ready() -> void:
 	#var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
-	var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
-	if stat_timer:
-		stat_timer.timeout.connect(_on_stat_timer_timeout)
-	else:
-		print("couldn't find node!")
-	
+	stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
+
 func initStats():
 	emit_signal("stats_changed", stats)
 	low_pass.cutoff_hz = 20500
+	stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
+	if stat_timer:
+		stat_timer.timeout.connect(_on_stat_timer_timeout)
+		print("Reconnected Stats Timer")
+	else:
+		print("couldn't find node!")
 	
 func _on_stat_timer_timeout():
 	# Check if any activities haven't been done in a while	
@@ -57,14 +61,13 @@ func _on_stat_timer_timeout():
 		
 	if "Overloaded" in statuses:
 		print("Feeling Overloaded, lowering stats...")
-		stats["energy"] = stats["energy"] - 1 * TimeManager.time_multiplier
-		stats["burnout"] = stats["burnout"] + 2 * TimeManager.time_multiplier
+		# stats["energy"] = stats["energy"] - 1 * TimeManager.time_multiplier
+		stats["burnout"] = stats["burnout"] + 1 * TimeManager.time_multiplier
 		stats["cognition"] = clamp(stats["cognition"], 0, 40)
 		stat_change = true
 		
 	if "Hungry" in statuses:
 		print("Feeling Hungry, lowering stats...")
-		stats["energy"] = stats["energy"] - 1 * TimeManager.time_multiplier
 		stats["burnout"] = stats["burnout"] + 2 * TimeManager.time_multiplier
 		stats["cognition"] = stats["cognition"] - 2 * TimeManager.time_multiplier
 		stat_change = true
@@ -84,6 +87,14 @@ func set_stat(statName: String, value: float) -> void:
 	if stats["cognition"] < 25:
 		add_status("Overloaded")
 		
+	# Hyperfocus Conditions
+	if stats["cognition"] > 50 and stats["body"] > 70:
+		if "Hyperfocus" not in statuses:
+			add_status("Hyperfocus")
+	else:
+		if "Hyperfocus" in statuses:
+			remove_status("Hyperfocus")
+		
 	emit_signal("stats_changed", stats)
 
 func add_status(status: String) -> void:
@@ -95,6 +106,9 @@ func add_status(status: String) -> void:
 		if status == "Hungry":
 			stats["burnout"] = stats["burnout"] + 20
 			
+		if status == "Hyperfocus":
+			TimeManager.set_time_dialation(0.5)
+			
 	emit_signal("player_status_changed", statuses)
 
 func remove_status(status: String) -> void:
@@ -104,5 +118,7 @@ func remove_status(status: String) -> void:
 	# Special Remove Conditions
 	if status == "Hungry":
 		stats["burnout"] = stats["burnout"] - 20
+	if status == "Hyperfocus":
+			TimeManager.reset_time_dialation()
 		
 	emit_signal("player_status_changed", statuses)

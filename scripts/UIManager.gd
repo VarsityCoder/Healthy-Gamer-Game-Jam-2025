@@ -47,12 +47,15 @@ func _ready() -> void:
 	CutsceneManager.activity_finished.connect(_on_activity_finished)
 	StatsManager.initStats()
 	hide_cutscene_overlay()
-	
+
+	print("UI is ready!")
 	#SoundManager.set_ambient_sound_volume(0.7)sd
 	SoundManager.set_default_ambient_sound_bus("ambient")
-	change_music()
+	if SoundManager.sound_effects.get_currently_playing().size() == 0:
+		change_music()
 
 func _on_player_status_changed(statuses):
+	print("UI MANAGER CAN SEE STATUSES CHANGE")
 	var temp = "Status: "
 	if statuses:
 		for i in len(statuses)-1:
@@ -65,6 +68,7 @@ func _on_stats_changed(stats) -> void:
 	burnout_bar.value = stats["burnout"]
 	cognition_bar.value = stats["cognition"]
 	body_bar.value = stats["body"]
+	print("UI MANAGER CAN SEE STAT CHANGE")
 
 func _on_time_updated(_game_time: float):
 	clock.text = "Day: " + str(TimeManager.current_day) + " Time: " + str(TimeManager.clock_time_formatted)
@@ -93,6 +97,7 @@ func _on_activity_started(command: Command) -> void:
 	if command.activity_name in sfx:
 		SoundManager.play_ambient_sound(sfx[command.activity_name]) #.set_sound_volume(0.7)
 		
+	_clear_actions()
 	show_cutscene_overlay()
 
 func _on_activity_finished(command: Command) -> void:
@@ -100,15 +105,16 @@ func _on_activity_finished(command: Command) -> void:
 	# HIDE ANIMATIONS
 	if command.activity_name in sfx:
 		SoundManager.stop_ambient_sound(sfx[command.activity_name])
-	_clear_actions()
 	hide_cutscene_overlay()
 
 func show_cutscene_overlay():
+	print("CUTSCENE OVERLAY ON")
 	overlay.visible = true
 	overlay.modulate.a = 0.0
 	overlay.create_tween().tween_property(overlay, "modulate:a", 1.0, 0.5)
 
 func hide_cutscene_overlay():
+	print("CUTSCENE OVERLAY OFF")
 	overlay.create_tween().tween_property(overlay, "modulate:a", 0.0, 0.5).finished.connect(
 		func(): overlay.visible = false
 	)
