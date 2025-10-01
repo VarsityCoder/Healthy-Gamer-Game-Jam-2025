@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxcf226mtr06g"]
+[gd_scene load_steps=2 format=3 uid="uid://dxcf226mtr06g"]
 
 [ext_resource type="Script" uid="uid://bwscnq5dvdssb" path="res://scripts/UIManager.gd" id="1_3fiu0"]
-[ext_resource type="AudioStream" uid="uid://dxvdr1byp0tfe" path="res://assets/sfx/sfx_chips.wav" id="8_3e3np"]
-[ext_resource type="AudioStream" uid="uid://wbdp0tmxmlho" path="res://assets/sfx/sfx_cleaning.wav" id="9_waeax"]
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -12,7 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3fiu0")
-sfx = Array[AudioStream]([ExtResource("8_3e3np"), ExtResource("9_waeax")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

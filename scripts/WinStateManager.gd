@@ -30,7 +30,7 @@ var second_interviews = [
 
 func _ready() -> void:
 	TimeManager.day_updated.connect(_on_day_updated)
-	
+
 func _process(delta: float) -> void:
 	# REMOVE LATER FOR TESTING
 	if Input.is_action_pressed("testCV"):

@@ -3,19 +3,26 @@ extends Node
 signal activity_started(command: Command)
 signal activity_finished(command: Command)
 
+
+var current_command = null
+
+const scenes = {
+	"Apartment": preload("res://assets/levels/apartmentStatsTest.tscn"),
+	"Update CV": preload("res://assets/levels/drag_example.tscn"),
+}
+
 @onready var ui_manager = get_tree().get_root().get_node("Apartment/CanvasLayer/Ui")
 
 var is_running: bool = false
 	
 func start_activity(command: Command) -> void:
-	if is_running: return
-	is_running = true
-	
+	ui_manager = get_tree().get_root().get_node("Apartment/CanvasLayer/Ui")
+	#if is_running: return
+	#is_running = true
+	print("Starting activity...")
 	emit_signal("activity_started", command)
+	current_command = command
 	ui_manager.show_cutscene_overlay()
-	
-	# INSERT CUTSCENES HERE
-	# INSERT MINIGAMES HERE
 	
 	# Advancing game time
 	var game_seconds = command.duration_hours * Globals.game_hour
@@ -73,6 +80,26 @@ func start_activity(command: Command) -> void:
 		ActivityManager.prereqs.erase(p)
 	ActivityManager.prereqs[command.activity_name] = 1
 	
-	ui_manager.hide_cutscene_overlay()
-	emit_signal("activity_finished", command)
-	is_running = false
+	# INSERT CUTSCENES HERE
+	if command.activity_name in scenes:
+		Globals.in_apartment = false
+		go_to_scene(scenes[command.activity_name])
+	else:
+		ui_manager.hide_cutscene_overlay()
+		emit_signal("activity_finished", command)
+		is_running = false
+		Globals.in_apartment = true
+
+func go_to_scene(scene):
+	if scene != null:
+		get_tree().change_scene_to_packed(scene)
+		
+func go_to_apt():
+	get_tree().change_scene_to_packed(scenes["Apartment"])
+	Globals.in_apartment = true
+	print(current_command.activity_name)
+	if current_command:
+		emit_signal("activity_finished", current_command)
+		current_command = null
+		await get_tree().create_timer(0.5).timeout
+		ui_manager = get_tree().get_root().get_node("Apartment/CanvasLayer/Ui")

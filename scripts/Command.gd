@@ -48,5 +48,7 @@ func is_available() -> bool:
 	return true
 
 func execute() -> void:
+	print(CutsceneManager.is_running, "Is the value from csm")
 	CutsceneManager.start_activity(self)
+	print("Executing start activity from command!")
 	last_used_time = TimeManager.game_time

@@ -5,6 +5,8 @@ signal player_status_changed(statuses: Array[String])
 
 var low_pass = AudioServer.get_bus_effect(1,0)
 
+var stat_timer = null
+
 var stats = {
 	"energy": 100,
 	"burnout": 0,
@@ -16,15 +18,17 @@ var statuses: Array[String] = []   # ["Hungry", "Grungy"]
 
 func _ready() -> void:
 	#var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
-	var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
-	if stat_timer:
-		stat_timer.timeout.connect(_on_stat_timer_timeout)
-	else:
-		print("couldn't find node!")
-	
+	stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
+
 func initStats():
 	emit_signal("stats_changed", stats)
 	low_pass.cutoff_hz = 20500
+	stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
+	if stat_timer:
+		stat_timer.timeout.connect(_on_stat_timer_timeout)
+		print("Reconnected Stats Timer")
+	else:
+		print("couldn't find node!")
 	
 func _on_stat_timer_timeout():
 	# Check if any activities haven't been done in a while	
