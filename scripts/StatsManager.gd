@@ -3,7 +3,7 @@ extends Node
 signal stats_changed(stats)
 signal player_status_changed(statuses: Array[String])
 
-@onready var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
+var low_pass = AudioServer.get_bus_effect(1,0)
 
 var stats = {
 	"energy": 100,
@@ -14,11 +14,17 @@ var stats = {
 
 var statuses: Array[String] = []   # ["Hungry", "Grungy"]
 
-#func _ready() -> void:
-	#stat_timer.timeout.connect(_on_stat_timer_timeout)
+func _ready() -> void:
+	#var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
+	var stat_timer = get_tree().get_root().get_node("Apartment/StatTimer")
+	if stat_timer:
+		stat_timer.timeout.connect(_on_stat_timer_timeout)
+	else:
+		print("couldn't find node!")
 	
 func initStats():
 	emit_signal("stats_changed", stats)
+	low_pass.cutoff_hz = 20500
 	
 func _on_stat_timer_timeout():
 	# Check if any activities haven't been done in a while	
@@ -45,7 +51,7 @@ func _on_stat_timer_timeout():
 		
 	if "Grungy" in statuses:
 		print("Feeling Grungy, lowering stats...")
-		stats["body"] = clamp(stats["body"], 0, 40)
+		stats["body"] = clamp(stats["body"], 0, 60)
 		stats["burnout"] = stats["burnout"] + 1 * TimeManager.time_multiplier
 		stat_change = true
 		
@@ -53,6 +59,7 @@ func _on_stat_timer_timeout():
 		print("Feeling Overloaded, lowering stats...")
 		stats["energy"] = stats["energy"] - 1 * TimeManager.time_multiplier
 		stats["burnout"] = stats["burnout"] + 2 * TimeManager.time_multiplier
+		stats["cognition"] = clamp(stats["cognition"], 0, 40)
 		stat_change = true
 		
 	if "Hungry" in statuses:
@@ -71,6 +78,7 @@ func get_stat(statName: String) -> float:
 func set_stat(statName: String, value: float) -> void:
 	if not stats.has(statName): return
 	stats[statName] = clamp(value, 0, 100)
+	#low_pass.cutoff_hz = value*100
 	
 	# Special Conditions
 	if stats["cognition"] < 25:

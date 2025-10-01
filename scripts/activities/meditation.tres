@@ -9,8 +9,9 @@ duration_hours = 0.25
 effects = {
 "body": 1.0,
 "burnout": -15.0,
-"cognition": 5.0,
+"cognition": 10.0,
 "energy": 5.0
 }
+statuses_removed = Array[String](["Overloaded"])
 cooldown_hours = 1.0
 metadata/_custom_type_script = "uid://m8pebh44pmau"

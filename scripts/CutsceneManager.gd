@@ -14,6 +14,9 @@ func start_activity(command: Command) -> void:
 	emit_signal("activity_started", command)
 	ui_manager.show_cutscene_overlay()
 	
+	# INSERT CUTSCENES HERE
+	# INSERT MINIGAMES HERE
+	
 	# Advancing game time
 	var game_seconds = command.duration_hours * Globals.game_hour
 	if command.activity_name == "Sleep":
@@ -37,7 +40,13 @@ func start_activity(command: Command) -> void:
 		var energy_val = 100 - StatsManager.get_stat("burnout")
 		StatsManager.set_stat("energy", max(0, energy_val))
 	
-	await get_tree().create_timer(1.5).timeout  # fake transition
+	var sound_length = 2
+	if command.activity_name in ui_manager.sfx:
+		sound_length = ui_manager.sfx[command.activity_name].get_length()
+	sound_length = 6 if sound_length > 6 or not sound_length else sound_length
+	
+	await get_tree().create_timer(sound_length).timeout  # fake transition
+	print(command.activity_name, " sound effect took ", sound_length)
 	
 	ui_manager.hide_cutscene_overlay()
 	emit_signal("activity_finished", command)
