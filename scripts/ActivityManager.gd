@@ -11,7 +11,8 @@ var prereqs = {
 }
 
 func _on_scene_reload(command: Command):
-	await get_tree().create_timer(0.5).timeout
+	#await get_tree().create_timer(0.3).timeout
+	await get_tree().process_frame
 	print("Scene Reloaded! Reattaching UI")
 	ui_manager = get_tree().get_root().get_node("Apartment/CanvasLayer/Ui")
 	if not ui_manager:
@@ -71,7 +72,8 @@ func time_since_all():
 func availableActions(actions):
 	if not ui_manager:
 		_on_scene_reload(null)
-	ui_manager.show_actions(actions)
+	else:
+		ui_manager.show_actions(actions)
 	
 func clearActions():
 	ui_manager._clear_actions()

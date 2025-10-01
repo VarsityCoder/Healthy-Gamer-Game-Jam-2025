@@ -6,6 +6,8 @@ var input_lock = false
 func _ready():
 	CutsceneManager.activity_started.connect(_on_activity_start)
 	CutsceneManager.activity_finished.connect(_on_activity_end)
+	if Globals.player_pos:
+		position = Globals.player_pos
 	
 func _on_activity_start(command):
 	input_lock = true
@@ -21,22 +23,20 @@ func _process(delta: float) -> void:
 
 
 	if velocity.x > 0:
-		$AnimatedSprite2D.play("walk_left")
-		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play("move_right")
 		
 	elif velocity.x < 0:
-		$AnimatedSprite2D.play("walk_left")
-		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("move_left")
 
 	elif velocity.y > 0:
-		$AnimatedSprite2D.play("walk_left")
+		$AnimatedSprite2D.play("move_down")
 		
 	elif velocity.y < 0:
-		$AnimatedSprite2D.play("walk_left")
+		$AnimatedSprite2D.play("move_up")
 
 	else:
-		#$AnimatedSprite2D.stop()
-		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.stop()
+		#$AnimatedSprite2D.play("idle")
 	
 	
 	move_and_slide()

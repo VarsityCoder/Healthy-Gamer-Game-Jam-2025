@@ -14,11 +14,13 @@ var tbd_emails = [
 # Use the emails array with the dialogue box
 var emails = []
 
+var current_interview = 0
+
 var first_interviews = [
 	# Interview 1 with Stability Bank from Narrative Doc
-	{"req_cv": 2, "role_close_date": 5, "message": "Stability Bank: Introductory Call"},
+	{"req_cv": 1, "role_close_date": 5, "message": "Stability Bank: Introductory Call"},
 	# Interview 1 with Bleeding Bat from Narrative Doc
-	{"req_cv": 4, "role_close_date": 9, "message": "Bleeding Bat: Introductory Call"},
+	{"req_cv": 2, "role_close_date": 9, "message": "Bleeding Bat: Introductory Call"},
 ]
 
 var second_interviews = [

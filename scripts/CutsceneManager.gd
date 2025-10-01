@@ -3,13 +3,18 @@ extends Node
 signal activity_started(command: Command)
 signal activity_finished(command: Command)
 
-
 var current_command = null
 
 const scenes = {
 	"Apartment": preload("res://assets/levels/apartmentStatsTest.tscn"),
-	"Update CV": preload("res://assets/levels/drag_example.tscn"),
+	#d"Update CV": preload("res://assets/levels/drag_example.tscn"),
+	"Check Email": preload("res://assets/levels/hgmail.tscn"),
 }
+
+var interview_scenes = [
+	preload("res://assets/levels/interview1.tscn"),
+	null,
+]
 
 @onready var ui_manager = get_tree().get_root().get_node("Apartment/CanvasLayer/Ui")
 
@@ -91,15 +96,23 @@ func start_activity(command: Command) -> void:
 		Globals.in_apartment = true
 
 func go_to_scene(scene):
+	Globals.player_pos = get_tree().get_root().get_node("Apartment/Player").position
+	print(Globals.player_pos)
 	if scene != null:
 		get_tree().change_scene_to_packed(scene)
 		
 func go_to_apt():
 	get_tree().change_scene_to_packed(scenes["Apartment"])
 	Globals.in_apartment = true
-	print(current_command.activity_name)
 	if current_command:
 		emit_signal("activity_finished", current_command)
-		current_command = null
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.3).timeout
 		ui_manager = get_tree().get_root().get_node("Apartment/CanvasLayer/Ui")
+		ui_manager._clear_actions()
+		get_tree().get_root().get_node("Apartment/Player").position = Globals.player_pos
+		current_command = null
+		
+func start_interview():
+	var scene = interview_scenes[WinStateManager.current_interview]
+	if scene != null:
+		get_tree().change_scene_to_packed(scene)

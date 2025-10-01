@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://sv2hfqxxgeo6"]
+
+[ext_resource type="Script" uid="uid://nt8hy2ncmrev" path="res://scripts/hgmail.gd" id="1_mgkck"]
+
+[node name="emails" type="Node2D"]
+script = ExtResource("1_mgkck")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="screen" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/screen/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/screen/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HGmail" type="Label" parent="CanvasLayer/screen/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
+text = "HGmail"
+
+[node name="Button" type="Button" parent="CanvasLayer/screen/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Close"
+
+[node name="emailList" type="VBoxContainer" parent="CanvasLayer/screen/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[connection signal="pressed" from="CanvasLayer/screen/MarginContainer/VBoxContainer2/HBoxContainer/Button" to="." method="_on_button_pressed"]
