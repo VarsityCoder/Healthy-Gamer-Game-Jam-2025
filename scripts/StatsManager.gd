@@ -14,8 +14,8 @@ var stats = {
 
 var statuses: Array[String] = []   # ["Hungry", "Grungy"]
 
-func _ready() -> void:
-	stat_timer.timeout.connect(_on_stat_timer_timeout)
+#func _ready() -> void:
+	#stat_timer.timeout.connect(_on_stat_timer_timeout)
 	
 func initStats():
 	emit_signal("stats_changed", stats)

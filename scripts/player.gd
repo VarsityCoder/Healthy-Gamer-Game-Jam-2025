@@ -6,6 +6,24 @@ var input = Vector2.ZERO
 
 func _process(delta: float) -> void:
 	player_movement(delta)
+	input = Input.get_vector("left", "right", "up", "down")
+	
+	velocity = input * speed
+	
+	if velocity.x > 0:
+		$AnimatedSprite2D.play("move_right")
+		
+	elif velocity.x < 0:
+		$AnimatedSprite2D.play("move_left")
+
+	elif velocity.y > 0:
+		$AnimatedSprite2D.play("move_down")
+		
+	elif velocity.y < 0:
+		$AnimatedSprite2D.play("move_up")
+
+	else:
+		$AnimatedSprite2D.stop()
 
 func diagonal_movement(diagonal) -> Vector2:
 	var screen_pos = Vector2()
@@ -14,9 +32,11 @@ func diagonal_movement(diagonal) -> Vector2:
 	return screen_pos
 	
 func player_movement(delta) -> void:
-	input = Input.get_vector("left", "right", "up", "down")
+
 	if input != Vector2.ZERO:
 		velocity = velocity.limit_length(speed)
+	
+	
 	
 	if input == Vector2.ZERO:
 		if velocity.length() > (friction * delta):
