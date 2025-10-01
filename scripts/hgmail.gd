@@ -24,7 +24,8 @@ func _ready():
 		var btn = btn_scene.instantiate()
 		
 		btn.find_child("Label").text = e
-		btn.event_email = e
+		if "Call" in e:
+			btn.event_email = e
 		email_list.add_child(btn)
 		email_list.move_child(btn, 0)
 

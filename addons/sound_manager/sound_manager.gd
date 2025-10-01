@@ -79,6 +79,8 @@ func stop_sound(resource: AudioStream) -> void:
 func set_default_sound_bus(bus: String) -> void:
 	sound_effects.bus = bus
 
+func stop_all_sounds(fade_out_duration: float = 0.0) -> void:
+	sound_effects.stop_all(fade_out_duration)
 
 #endregion
 

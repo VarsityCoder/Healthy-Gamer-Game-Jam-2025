@@ -25,3 +25,10 @@ func get_currently_playing() -> Array[AudioStream]:
 	for player in busy_players:
 		tracks.append(player.stream)
 	return tracks
+
+func stop_all(fade_out_duration: float = 0.0) -> void:
+	if fade_out_duration <= 0.0:
+			fade_out_duration = 0.01
+
+	for player in busy_players:
+		fade_volume(player, player.volume_db, -80, fade_out_duration)

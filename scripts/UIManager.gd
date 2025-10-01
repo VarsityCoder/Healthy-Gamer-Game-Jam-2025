@@ -76,8 +76,9 @@ func _on_time_updated(_game_time: float):
 
 func change_music():
 	if music.size() > 0:
-		SoundManager.stop_sound(music[current_melody])
-		SoundManager.stop_sound(drums[current_drums])
+		#SoundManager.stop_sound(music[current_melody])
+		#SoundManager.stop_sound(drums[current_drums])
+		SoundManager.stop_all_sounds(0.5)
 		current_melody = randi_range(0, music.size()-1)
 		current_drums = randi_range(0, drums.size()-1)
 		print("MUSIC: Current track: #",current_melody," - ", music[current_melody].resource_path.get_file().get_basename())

@@ -8,7 +8,7 @@ var cv_updates = 0
 var practice_interviews = 0
 
 var tbd_emails = [
-	{"delivered": 2, "message": "Hey, hows it going?"}
+	#{"delivered": 2, "message": "Hey, hows it going?"}
 ]
 
 # Use the emails array with the dialogue box

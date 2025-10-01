@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://1wawjiw82pk5"]
+[gd_scene load_steps=3 format=3 uid="uid://dfmmv3me1q8ss"]
 
-[ext_resource type="Texture2D" uid="uid://cngfg8562bplh" path="res://assets/art/interview.png" id="2_crjqk"]
-[ext_resource type="Script" uid="uid://0e6lpc1spbml" path="res://scripts/testButton.gd" id="2_ji25f"]
+[ext_resource type="Texture2D" uid="uid://dwcilyn10bjxf" path="res://assets/art/win.png" id="1_j6gme"]
+[ext_resource type="Script" uid="uid://0e6lpc1spbml" path="res://scripts/testButton.gd" id="2_fnd61"]
 
 [node name="interview" type="Node2D"]
 
@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_crjqk")
+texture = ExtResource("1_j6gme")
 expand_mode = 5
 stretch_mode = 3
 
@@ -25,12 +25,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -77.0
+offset_left = -46.5
 offset_top = -31.0
-offset_right = 77.0
+offset_right = 46.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back to Apartment"
-script = ExtResource("2_ji25f")
+text = "Play Again!"
+script = ExtResource("2_fnd61")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
