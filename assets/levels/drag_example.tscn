@@ -9,13 +9,13 @@
 position = Vector2(-142, 90)
 
 [node name="Platform2" parent="." instance=ExtResource("1_lkhlg")]
-position = Vector2(231, 81)
+position = Vector2(200, 81)
 
 [node name="Platform3" parent="." instance=ExtResource("1_lkhlg")]
-position = Vector2(239, -167)
+position = Vector2(196, -97)
 
 [node name="Platform4" parent="." instance=ExtResource("1_lkhlg")]
-position = Vector2(-152, -162)
+position = Vector2(-152, -81)
 
 [node name="Object1" parent="." instance=ExtResource("2_5i6vt")]
 
